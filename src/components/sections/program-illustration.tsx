@@ -2,17 +2,29 @@ import { Handshake } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { programPoster } from '@/data/program-poster'
+import { programPosterImages } from '@/data/program-poster-images'
 import collegeLogo from '@/assets/college-logo.jpg'
 import hedLogo from '@/assets/hed-punjab-logo.png'
 import uogLogo from '@/assets/uog-logo.png'
 
 /**
- * Self-generated (not photographic) "poster" for a program card: the
- * college logo and the relevant partner logo (UOG for BS degrees, HED
- * Punjab for Intermediate/Associate programs) flanking a handshake mark,
- * with the program name below — in place of a stock/generic photo.
+ * Poster for a program card. If a real, custom-designed poster image has
+ * been supplied for this program (program-poster-images.ts), it's used
+ * directly. Otherwise falls back to a generated panel: the college logo
+ * and the relevant partner logo (UOG for BS degrees, HED Punjab for
+ * Intermediate/Associate programs) flanking a handshake mark, with the
+ * program name below.
  */
 export function ProgramIllustration({ slug, className }: { slug: string; className?: string }) {
+  const realPoster = programPosterImages[slug]
+  if (realPoster) {
+    return (
+      <div className={cn('bg-white flex items-center justify-center overflow-hidden', className)}>
+        <img src={realPoster} alt={`${slug} program poster`} className="size-full object-contain" />
+      </div>
+    )
+  }
+
   const poster = programPoster[slug] ?? {
     shortTitle: slug,
     subtitle: '',
