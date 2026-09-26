@@ -1,15 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import {
-  Landmark,
-  Target,
-  Eye,
-  BookOpenCheck,
-  Users,
-  ShieldCheck,
-  ClipboardCheck,
-  UserCheck,
-  DoorOpen,
-} from 'lucide-react'
+import { Landmark, Target, Eye, Lightbulb, Users2, TrendingUp } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { AffiliationBanner } from '@/components/sections/affiliation-banner'
@@ -22,42 +12,27 @@ import campusFacilitiesPhoto from '@/assets/3.jpg'
 const coreValues = [
   {
     number: '01',
-    icon: BookOpenCheck,
     title: 'Discipline',
     description:
       'A structured, well-supervised academic environment — regular classes, attendance and a focus on fundamentals.',
   },
   {
     number: '02',
-    icon: Users,
     title: 'Accessibility',
     description:
       'An affordable public sector education, open to students from Aroop and the surrounding Gujranwala area.',
   },
   {
     number: '03',
-    icon: ShieldCheck,
     title: 'Community',
     description: 'A campus where students are known individually by faculty, not treated as a number.',
   },
 ] as const
 
 const leadershipPrinciples = [
-  {
-    icon: ClipboardCheck,
-    title: 'Discipline-First Teaching',
-    description: 'A structured, discipline-first approach to teaching and classroom management.',
-  },
-  {
-    icon: UserCheck,
-    title: 'Individual Attention',
-    description: 'Faculty who know their students individually, not as a roll number.',
-  },
-  {
-    icon: DoorOpen,
-    title: 'Open Access',
-    description: 'An open door for admissions and academic questions, at any time.',
-  },
+  { icon: Lightbulb, title: 'Discipline-first teaching' },
+  { icon: Users2, title: 'Student-centred practices' },
+  { icon: TrendingUp, title: 'Continuous improvement mindset' },
 ] as const
 
 export const Route = createFileRoute('/about')({
@@ -118,35 +93,45 @@ function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading eyebrow="Our Foundation" title="Core Values & Principles" />
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div className="mt-12 grid gap-10 sm:grid-cols-3">
           {coreValues.map((value) => (
-            <div key={value.number} className="border-border bg-card rounded-lg border p-6 shadow-sm">
-              <span className="text-accent font-heading text-3xl font-bold">{value.number}</span>
-              <div className="bg-primary/10 text-primary mt-3 mb-3 flex size-11 items-center justify-center rounded-full">
-                <value.icon className="size-5" />
-              </div>
-              <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">{value.title}</h3>
-              <p className="text-muted-foreground text-sm">{value.description}</p>
+            <div key={value.number}>
+              <span className="text-border font-heading block text-6xl font-bold">{value.number}</span>
+              <h3 className="font-heading text-foreground mt-2 mb-2 text-xl font-semibold">{value.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6">
-        <div className="relative overflow-hidden rounded-xl shadow-sm">
-          <img
-            src={campusFacilitiesPhoto}
-            alt="Campus Facilities"
-            className="aspect-video w-full object-cover"
-          />
-          <div className="from-black/70 absolute inset-0 flex items-end bg-linear-to-t to-transparent p-6">
-            <span className="text-lg font-semibold text-white">Campus Facilities</span>
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid items-center gap-12 sm:grid-cols-2">
+          <div className="relative">
+            <img
+              src={campusFacilitiesPhoto}
+              alt="Campus Facilities"
+              className="aspect-4/3 w-full rounded-xl object-cover shadow-sm"
+            />
+            <div className="bg-card absolute -bottom-6 right-6 flex flex-col items-center rounded-xl px-6 py-4 text-center shadow-xl">
+              <span className="text-accent font-heading text-3xl font-bold">
+                {new Date().getFullYear() - site.foundedYear}+
+              </span>
+              <span className="text-foreground text-sm font-medium">Years Excellence</span>
+            </div>
           </div>
-          <div className="bg-accent text-accent-foreground absolute top-4 right-4 flex flex-col items-center rounded-lg px-4 py-2 text-center shadow-lg">
-            <span className="font-heading text-2xl font-bold">
-              {new Date().getFullYear() - site.foundedYear}+
-            </span>
-            <span className="text-xs font-medium tracking-wide uppercase">Years Excellence</span>
+
+          <div>
+            <SectionHeading
+              eyebrow="Campus"
+              title="A Single, Well-Maintained Campus"
+              align="left"
+            />
+            <p className="text-foreground/85 mt-4 text-base leading-relaxed text-pretty">
+              The college operates from one main academic block in Aroop, housing
+              classrooms, science and computer laboratories, and administrative
+              offices — serving intermediate and BS-level students under the{' '}
+              {site.governance.department}.
+            </p>
           </div>
         </div>
       </section>
@@ -178,20 +163,16 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6">
         <SectionHeading
-          eyebrow="Leadership"
           title="Our Leadership Philosophy"
           description="The college is run on a simple principle: consistent, hands-on academic supervision produces better results than any single initiative."
         />
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+        <div className="mt-10 flex flex-col items-center justify-center gap-10 sm:flex-row sm:gap-16">
           {leadershipPrinciples.map((item) => (
-            <div key={item.title} className="border-border bg-card rounded-lg border p-6 shadow-sm">
-              <div className="bg-primary/10 text-primary mb-3 flex size-11 items-center justify-center rounded-full">
-                <item.icon className="size-5" />
-              </div>
-              <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">{item.title}</h3>
-              <p className="text-muted-foreground text-sm">{item.description}</p>
+            <div key={item.title} className="flex flex-col items-center gap-3 text-center">
+              <item.icon className="text-primary size-8" strokeWidth={1.5} />
+              <span className="text-foreground max-w-32 text-sm font-medium">{item.title}</span>
             </div>
           ))}
         </div>
