@@ -13,6 +13,8 @@ export function InstitutionalOverview() {
         <img
           src={campusPhoto}
           alt="Govt. Graduate College Aroop, Gujranwala — main building"
+          loading="lazy"
+          decoding="async"
           className="border-border aspect-4/3 w-full rounded-lg border object-cover shadow-sm"
         />
 

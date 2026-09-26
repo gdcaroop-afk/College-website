@@ -12,8 +12,8 @@ export function ProgramCard({ program, dashed = false }: { program: Program; das
       params={{ slug: program.slug }}
       className={
         dashed
-          ? 'border-border bg-card group block overflow-hidden rounded-2xl border border-dashed shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'
-          : 'bg-card group block overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl'
+          ? 'border-border bg-card group block overflow-hidden rounded-2xl border border-dashed shadow-sm transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-1 hover:shadow-lg'
+          : 'bg-card group block overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-1 hover:shadow-xl'
       }
     >
       <div className="relative h-44 w-full overflow-hidden">

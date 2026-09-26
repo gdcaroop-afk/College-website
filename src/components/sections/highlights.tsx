@@ -29,7 +29,7 @@ export function Highlights() {
             key={item.slug}
             to="/highlights/$slug"
             params={{ slug: item.slug }}
-            className="bg-card border-2 border-transparent group flex flex-col items-center gap-1.5 rounded-lg p-4 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary/5 hover:shadow-xl"
+            className="bg-card border-2 border-transparent group flex flex-col items-center gap-1.5 rounded-lg p-4 text-center shadow-lg transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary/5 hover:shadow-xl"
           >
             <span className="flex h-10 items-center justify-center">
               <HighlightImage kind={item.imageKind} />

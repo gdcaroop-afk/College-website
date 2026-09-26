@@ -20,7 +20,13 @@ export function ProgramIllustration({ slug, className }: { slug: string; classNa
   if (realPoster) {
     return (
       <div className={cn('bg-white flex items-center justify-center overflow-hidden', className)}>
-        <img src={realPoster} alt={`${slug} program poster`} className="size-full object-contain" />
+        <img
+          src={realPoster}
+          alt={`${slug} program poster`}
+          loading="lazy"
+          decoding="async"
+          className="size-full object-contain"
+        />
       </div>
     )
   }

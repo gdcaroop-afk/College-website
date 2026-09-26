@@ -17,7 +17,7 @@ function Tile({ image }: { image: GalleryImage }) {
   }
 
   return (
-    <figure className="group relative aspect-4/3 w-full overflow-hidden rounded-xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <figure className="group relative aspect-4/3 w-full overflow-hidden rounded-xl shadow-sm ring-1 ring-black/5 transition-[transform,box-shadow,background-color,border-color] duration-300 hover:-translate-y-1 hover:shadow-xl">
       <img
         src={image.src}
         alt={image.alt}

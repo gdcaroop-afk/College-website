@@ -86,6 +86,8 @@ function AboutPage() {
             <img
               src={campusFacilitiesPhoto}
               alt="Campus Facilities"
+              loading="lazy"
+              decoding="async"
               className="aspect-4/3 w-full rounded-xl object-cover shadow-sm"
             />
             <div className="bg-card absolute -bottom-6 right-6 flex flex-col items-center rounded-xl px-6 py-4 text-center shadow-xl">
@@ -120,6 +122,8 @@ function AboutPage() {
           <img
             src={principalPhoto}
             alt={principal.name}
+            loading="lazy"
+            decoding="async"
             className="border-primary/20 size-28 rounded-full border-2 object-cover shadow-md"
           />
           <div>

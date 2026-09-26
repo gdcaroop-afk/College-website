@@ -121,6 +121,8 @@ function AdmissionsPage() {
           <img
             src={classroomPhoto}
             alt="A classroom lecture in progress"
+            loading="lazy"
+            decoding="async"
             className="aspect-4/3 w-full rounded-xl object-cover shadow-sm"
           />
         </div>
@@ -234,6 +236,8 @@ function AdmissionsPage() {
             <img
               src={campusPhoto}
               alt="Govt. Graduate College Aroop, Gujranwala campus"
+              loading="lazy"
+              decoding="async"
               className="aspect-video w-full rounded-xl object-cover shadow-sm"
             />
             <h3 className="font-heading text-foreground mt-4 text-lg font-semibold">Visit the Campus</h3>

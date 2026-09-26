@@ -5,11 +5,13 @@ import type { EventItem } from '@/data/events'
 
 export function EventCard({ event }: { event: EventItem }) {
   return (
-    <div className="bg-card group flex flex-col overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div className="bg-card group flex flex-col overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative aspect-video w-full overflow-hidden">
         <img
           src={event.image}
           alt={event.title}
+          loading="lazy"
+          decoding="async"
           className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <Badge variant="accent" className="absolute top-3 left-3 shadow-md">
