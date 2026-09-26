@@ -86,11 +86,7 @@ function ProfileModal({
               <p className="font-sans text-sm font-semibold text-primary">
                 {member.designation}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-2 pt-1 sm:justify-start">
-                {member.institutions.map((inst) => (
-                  <InstitutionLogo key={inst.shortName} code={inst.shortName} />
-                ))}
-              </div>
+
             </div>
           </div>
         </div>
@@ -380,9 +376,6 @@ function FacultyPage() {
                     <div className="lg:col-span-8 space-y-4 flex flex-col justify-center">
                       <div className="space-y-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="bg-secondary text-primary font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider">
-                            Featured Faculty
-                          </span>
                           <span className="text-muted-foreground text-xs font-semibold flex items-center gap-1">
                             <Clock className="size-3.5 text-primary" />
                             {principal.experience} Experience
@@ -413,13 +406,7 @@ function FacultyPage() {
                       </div>
 
                       {/* Institutions + View Profile Button */}
-                      <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-border/60">
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-muted-foreground">Alma Mater:</span>
-                          {principal.institutions.map((inst) => (
-                            <InstitutionLogo key={inst.shortName} code={inst.shortName} />
-                          ))}
-                        </div>
+                      <div className="flex flex-wrap items-center justify-end gap-4 pt-3 border-t border-border/60">
 
                         <div className="flex items-center gap-3">
                           <button
@@ -541,12 +528,7 @@ function FacultyCard({
             {member.qualification}
           </p>
 
-          {/* Alma Mater Badges with University Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
-            {member.institutions.map((inst) => (
-              <InstitutionLogo key={inst.shortName} code={inst.shortName} />
-            ))}
-          </div>
+
         </div>
       </div>
 

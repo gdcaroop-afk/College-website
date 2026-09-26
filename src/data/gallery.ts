@@ -29,7 +29,6 @@ import independenceDay2 from '@/assets/14_aug_event.jpg'
 import orientation from '@/assets/welcome_orientation.jpg'
 import graduatePic from '@/assets/474566851_1122634212927657_556315117393241181_n.jpg'
 import colorDay1 from '@/assets/Color Day Event.jpeg'
-import colorDay3 from '@/assets/Color day 03.jpeg'
 
 export type GalleryCategory =
   | 'Graduates & Alumni'
@@ -55,7 +54,6 @@ export const gallery: GalleryImage[] = [
 
   // 🎨 2. Color Day Festival Section
   { id: 'color-1', src: colorDay1, alt: 'College Color Day Cultural Festival & Celebration', caption: 'Color Day Cultural Celebration', category: 'Color Day Festival' },
-  { id: 'color-3', src: colorDay3, alt: 'Color Day Youth Festival', caption: 'Youth Cultural Festival', category: 'Color Day Festival' },
   { id: 'color-4', src: voicePunjab, alt: 'Voice of Punjab Cultural & Literary Declamation', caption: 'Voice of Punjab Declamation', category: 'Color Day Festival' },
 
   // 🏆 3. Sports Gala Section

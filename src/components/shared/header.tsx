@@ -22,7 +22,7 @@ const mainNavItems = [
 const tickerAnnouncements = [
   '📢 Admissions Open for BS CS, BS English, BS Chemistry, BS Commerce & Intermediate (F.Sc, ICS, F.A, I.Com, DIT)',
   '⏰ College Shift Timings: Intermediate (08:00 AM - 01:30 PM) | BS Programs (08:30 AM - 12:40 PM)',
-  '📞 Admission Helpline: +92 55 3892525 | Email: gdc.aroop@gmail.com',
+  '📞 Principal Office: 05534940001 | Admission Office: 055-34940002 | Email: gdc.aroop@gmail.com',
   '🎓 Welcome Orientation Ceremony Scheduled for New BS & Intermediate Batches',
   '🏆 Annual Sports Day & Academic Merit Awards Celebrations',
 ]
