@@ -116,7 +116,7 @@ function AboutPage() {
 
       <section className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="border-border bg-card flex flex-col items-center gap-4 rounded-lg border p-6 text-center shadow-sm sm:p-8">
-          <span className="text-accent-foreground bg-accent/20 w-fit rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase">
+          <span className="bg-accent text-accent-foreground font-bold px-2.5 py-0.5 rounded text-xs uppercase tracking-wider shadow-2xs w-fit">
             Principal's Message
           </span>
           <img

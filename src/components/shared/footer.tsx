@@ -22,13 +22,14 @@ export function Footer() {
           <h3 className="font-heading mb-1 font-semibold">Quick Links</h3>
           {[
             { to: '/about', label: 'About the College' },
+            { to: '/admissions', label: 'Admissions' },
             { to: '/academics', label: 'Academic Programs' },
             { to: '/faculty', label: 'Faculty' },
-            { to: '/news', label: 'News & Announcements' },
-            { to: '/contact', label: 'Contact & Location' },
+            { to: '/gallery', label: 'Gallery' },
+            { to: '/news', label: 'Events' },
           ].map((l) => (
             <Link
-              key={l.to}
+              key={l.to + l.label}
               to={l.to}
               className="text-primary-foreground/80 hover:text-accent w-fit"
             >

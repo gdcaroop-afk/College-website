@@ -22,7 +22,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <span className="text-accent-foreground bg-accent/20 rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase">
+        <span className="bg-accent text-accent-foreground font-bold px-2.5 py-0.5 rounded text-xs uppercase tracking-wider shadow-2xs">
           {eyebrow}
         </span>
       ) : null}

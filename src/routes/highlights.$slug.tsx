@@ -29,7 +29,7 @@ function HighlightDetailPage() {
           <ArrowLeft className="size-3.5" />
           <span>Back to Home</span>
         </Link>
-        <span className="bg-accent/20 text-accent-foreground px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+        <span className="bg-accent text-accent-foreground font-bold px-2.5 py-0.5 rounded text-xs uppercase tracking-wider shadow-2xs">
           Institutional Overview
         </span>
       </div>

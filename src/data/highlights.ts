@@ -39,12 +39,12 @@ export const highlights: HighlightDetail[] = [
   {
     slug: 'arts-science-programs',
     title: 'Arts, Science & CS',
-    summary: 'Intermediate and BS programs across multiple disciplines',
+    summary: 'Intermediate, 2-Year Diplomas & 4-Year BS degrees',
     imageKind: 'arts-science',
     body: [
-      `${site.name} offers a mix of Intermediate and Bachelor's programs spanning Arts, Pre-Medical Science, and Computer Science:`,
+      `${site.name} offers comprehensive academic programs including Intermediate (F.Sc Pre-Medical, Pre-Engineering, ICS, F.A, I.Com), 2-Year Associate Diplomas (DIT, D.Com), and 4-Year Bachelor's degrees (BS CS, BS Chemistry, BS English, BS Commerce).`,
       programs.map((p) => `${p.title} (${p.duration})`).join(' · '),
-      'Intermediate programs are administered under the HED Punjab framework, while the BS programs (Computer Science and English) are affiliated with the University of Gujrat.',
+      'Intermediate and Diploma programs are administered under the HED Punjab framework, while 4-Year BS degree programs are affiliated with the University of Gujrat (UOG).',
     ],
     sources: [{ label: 'HED Punjab program listing for this college', url: site.governance.hepUrl }],
   },

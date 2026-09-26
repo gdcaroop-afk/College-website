@@ -28,10 +28,7 @@ import independenceDay from '@/assets/14_august_event.jpg'
 import independenceDay2 from '@/assets/14_aug_event.jpg'
 import orientation from '@/assets/welcome_orientation.jpg'
 import graduatePic from '@/assets/474566851_1122634212927657_556315117393241181_n.jpg'
-import graduates01 from '@/assets/graduates-01.jpeg'
-import graduates02 from '@/assets/Graduates-02.jpeg'
 import colorDay1 from '@/assets/Color Day Event.jpeg'
-import colorDay2 from '@/assets/Color-day-02.jpeg'
 import colorDay3 from '@/assets/Color day 03.jpeg'
 
 export type GalleryCategory =
@@ -51,8 +48,6 @@ export type GalleryImage = {
 
 export const gallery: GalleryImage[] = [
   // 🎓 1. Graduates & Alumni Section
-  { id: 'grad-real-1', src: graduates01, alt: 'Graduation Ceremony & Graduating Class of College', caption: 'Graduating Class & Degree Ceremony', category: 'Graduates & Alumni' },
-  { id: 'grad-real-2', src: graduates02, alt: 'Convocation & Academic Achievers Batch', caption: 'Convocation & Academic Achievers', category: 'Graduates & Alumni' },
   { id: 'grad-1', src: welcomeStudents, alt: 'Graduating BS & Intermediate Students Class', caption: 'BS & Intermediate Graduating Class', category: 'Graduates & Alumni' },
   { id: 'grad-2', src: facultyGathering, alt: 'Graduating Scholars & Faculty Commemoration', caption: 'Graduation & Honor Roll Ceremony', category: 'Graduates & Alumni' },
   { id: 'grad-3', src: orientation, alt: 'Convocation & Degree Distribution', caption: 'Degree Award & Academic Convocation', category: 'Graduates & Alumni' },
@@ -60,7 +55,6 @@ export const gallery: GalleryImage[] = [
 
   // 🎨 2. Color Day Festival Section
   { id: 'color-1', src: colorDay1, alt: 'College Color Day Cultural Festival & Celebration', caption: 'Color Day Cultural Celebration', category: 'Color Day Festival' },
-  { id: 'color-2', src: colorDay2, alt: 'Students Gala & Color Day Event', caption: 'Students Cultural Gala', category: 'Color Day Festival' },
   { id: 'color-3', src: colorDay3, alt: 'Color Day Youth Festival', caption: 'Youth Cultural Festival', category: 'Color Day Festival' },
   { id: 'color-4', src: voicePunjab, alt: 'Voice of Punjab Cultural & Literary Declamation', caption: 'Voice of Punjab Declamation', category: 'Color Day Festival' },
 

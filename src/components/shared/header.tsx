@@ -14,7 +14,7 @@ const mainNavItems = [
   { to: '/admissions', label: 'Admissions' },
   { to: '/academics', label: 'Academics' },
   { to: '/faculty', label: 'Faculty & Staff' },
-  { to: '/gallery', label: 'Campus & Facilities' },
+  { to: '/gallery', label: 'Gallery' },
   { to: '/news', label: 'News & Events' },
   { to: '/contact', label: 'Contact' },
 ] as const
@@ -22,7 +22,7 @@ const mainNavItems = [
 const tickerAnnouncements = [
   '📢 Admissions Open for BS CS, BS English, BS Chemistry, BS Commerce & Intermediate (F.Sc, ICS, F.A, I.Com, DIT)',
   '⏰ College Shift Timings: Intermediate (08:00 AM - 01:30 PM) | BS Programs (08:30 AM - 12:40 PM)',
-  '📞 Admission Helpline: +92 55 3892525 | Email: info@ggcaroop.edu.pk',
+  '📞 Admission Helpline: +92 55 3892525 | Email: gdc.aroop@gmail.com',
   '🎓 Welcome Orientation Ceremony Scheduled for New BS & Intermediate Batches',
   '🏆 Annual Sports Day & Academic Merit Awards Celebrations',
 ]
@@ -110,14 +110,14 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation — Top-level individual links */}
-        <nav className="hidden items-center gap-0.5 xl:flex shrink-0">
+        <nav className="hidden items-center gap-1 xl:flex shrink-0">
           {mainNavItems.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: 'exact' in item ? item.exact : false }}
-              activeProps={{ className: 'text-primary bg-secondary font-bold' }}
-              className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-2.5 py-1.5 text-xs lg:text-sm font-semibold transition-colors"
+              activeProps={{ className: 'text-primary bg-primary/15 font-bold shadow-2xs' }}
+              className="text-foreground/80 hover:bg-primary/10 hover:text-primary rounded-lg px-3 py-1.5 text-xs lg:text-sm font-semibold transition-all duration-200"
             >
               {item.label}
             </Link>
@@ -148,8 +148,8 @@ export function Header() {
             key={item.to}
             to={item.to}
             activeOptions={{ exact: 'exact' in item ? item.exact : false }}
-            activeProps={{ className: 'text-primary bg-secondary font-bold' }}
-            className="text-foreground/90 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-semibold block w-full transition-colors"
+            activeProps={{ className: 'text-primary bg-primary/15 font-bold' }}
+            className="text-foreground/90 hover:bg-primary/10 hover:text-primary rounded-lg px-3 py-2 text-sm font-semibold block w-full transition-all duration-200"
             onClick={() => setOpen(false)}
           >
             {item.label}

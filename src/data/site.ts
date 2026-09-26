@@ -28,11 +28,11 @@ export const site = {
       { number: '+92 55 3892525', source: 'Admission Helpline' },
       { number: '055-3494000', source: 'Govt Graduate College Aroop Record' },
     ],
-    email: 'info@ggcaroop.edu.pk',
+    email: 'gdc.aroop@gmail.com',
   },
   social: {
     facebook: 'https://www.facebook.com/ggc.aroop',
-    instagram: 'https://www.instagram.com/ggca.aroop',
+    instagram: 'https://www.instagram.com/ggc.aroop/',
   },
   affiliation: {
     university: 'University of Gujrat (UOG)',

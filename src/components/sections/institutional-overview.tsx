@@ -19,7 +19,7 @@ export function InstitutionalOverview() {
         />
 
         <div className="flex flex-col gap-5">
-          <span className="text-accent-foreground bg-accent/20 w-fit rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase">
+          <span className="bg-accent text-accent-foreground font-bold px-2.5 py-0.5 rounded text-xs uppercase tracking-wider shadow-2xs w-fit">
             Institutional Overview
           </span>
           <h2 className="text-primary font-heading text-3xl font-bold text-balance sm:text-4xl">
