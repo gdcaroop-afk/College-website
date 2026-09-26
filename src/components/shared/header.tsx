@@ -21,10 +21,10 @@ const mainNavItems = [
 
 const tickerAnnouncements = [
   '📢 Admissions Open for BS CS, BS English, BS Chemistry, BS Commerce & Intermediate (F.Sc, ICS, F.A, I.Com, DIT)',
-  '⏰ College Timings: Morning Shift 08:00 AM to 02:00 PM',
+  '⏰ College Shift Timings: Intermediate (08:00 AM - 01:30 PM) | BS Programs (08:30 AM - 12:40 PM)',
+  '📞 Admission Helpline: +92 55 3892525 | Email: info@ggcaroop.edu.pk',
   '🎓 Welcome Orientation Ceremony Scheduled for New BS & Intermediate Batches',
   '🏆 Annual Sports Day & Academic Merit Awards Celebrations',
-  '📞 Admission Helpline: +92 55 3892525 | Email: info@ggcaroop.edu.pk',
 ]
 
 export function Header() {
@@ -58,14 +58,20 @@ export function Header() {
             </div>
           </div>
 
-          {/* Social Links */}
+          {/* Contact & Social Links */}
           <div className="flex shrink-0 items-center gap-3 border-l border-primary-foreground/20 pl-3">
             <a
               href={`tel:${site.contact.phones[0]?.number}`}
-              className="hover:text-accent hidden items-center gap-1 text-[11px] sm:flex"
+              className="hover:text-accent hidden items-center gap-1 text-[11px] sm:flex font-semibold"
             >
               <Phone className="size-3 shrink-0" />
               <span>{site.contact.phones[0]?.number}</span>
+            </a>
+            <a
+              href={`mailto:${site.contact.email}`}
+              className="hover:text-accent hidden items-center gap-1 text-[11px] md:flex font-semibold"
+            >
+              <span>{site.contact.email}</span>
             </a>
             <a
               href={site.social.facebook}

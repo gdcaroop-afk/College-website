@@ -25,10 +25,10 @@ export const site = {
     // shown here with their source so the college can confirm the correct
     // one before this is treated as final.
     phones: [
+      { number: '+92 55 3892525', source: 'Admission Helpline' },
       { number: '055-3494000', source: 'Govt Graduate College Aroop Record' },
-
     ],
-    email: 'gdc.aroop@gmail.com',
+    email: 'info@ggcaroop.edu.pk',
   },
   social: {
     facebook: 'https://www.facebook.com/ggc.aroop',
