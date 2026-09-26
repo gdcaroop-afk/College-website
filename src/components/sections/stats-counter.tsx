@@ -10,7 +10,8 @@ const stats = [
   { icon: BookOpenCheck, value: intermediateCount, suffix: '', label: 'Intermediate Programs', pending: false },
   { icon: GraduationCap, value: bachelorCount, suffix: '', label: "Bachelor's Programs", pending: false },
   { icon: Users, value: 500, suffix: '+', label: 'Total Students', pending: false },
-  // TODO_CONFIRM: faculty count not yet provided — placeholder until confirmed.
+  // Given as an approximate range ("under 20") rather than an exact count —
+  // shown as text rather than animated to a falsely precise number.
   { icon: UserRoundCheck, value: 0, suffix: '', label: 'Faculty Members', pending: true },
 ] as const
 
@@ -21,7 +22,7 @@ function StatItem({ icon: Icon, value, suffix, label, pending }: (typeof stats)[
     <div ref={ref} className="flex flex-col items-center gap-2 text-center text-white">
       <Icon className="size-7 opacity-90" strokeWidth={1.5} />
       <span className="font-heading text-4xl font-bold sm:text-5xl">
-        {pending ? 'TBD' : `${count}${suffix}`}
+        {pending ? 'Under 20' : `${count}${suffix}`}
       </span>
       <span className="text-sm tracking-wide text-white/80 uppercase">{label}</span>
     </div>
