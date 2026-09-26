@@ -7,7 +7,7 @@ import heroBackground from '@/assets/Hero_section_background.jpg'
 
 export function Hero() {
   return (
-    <section className="border-border relative overflow-hidden border-b">
+    <section className="relative overflow-hidden">
       <img
         src={heroBackground}
         alt=""

@@ -26,7 +26,7 @@ function HighlightImage({ kind }: { kind: (typeof highlights)[number]['imageKind
 
 export function Highlights() {
   return (
-    <section className="relative z-10 mx-auto -mt-20 max-w-6xl px-4 sm:px-6">
+    <section className="relative z-10 mx-auto -mt-12 max-w-6xl px-4 sm:px-6">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {highlights.map((item) => (
           <Link

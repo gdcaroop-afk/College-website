@@ -6,7 +6,9 @@
  */
 
 import faPoster from '@/assets/FA.jpg'
+import fscPoster from '@/assets/FSC-Medical.jpg'
 
 export const programPosterImages: Record<string, string> = {
   'fa-humanities-arts': faPoster,
+  'fsc-pre-medical': fscPoster,
 }
