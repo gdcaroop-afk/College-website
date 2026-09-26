@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Target, Eye, Lightbulb, Users2, TrendingUp } from 'lucide-react'
+import { Lightbulb, Users2, TrendingUp } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { GalleryGrid } from '@/components/sections/gallery-grid'
@@ -65,29 +65,6 @@ function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <GalleryGrid limit={8} className="sm:grid-cols-4" />
-      </section>
-
-      <section className="mx-auto grid max-w-4xl gap-6 px-4 sm:grid-cols-2 sm:px-6">
-        <div className="border-border bg-card rounded-lg border p-6 shadow-sm">
-          <Target className="text-primary mb-3 size-8" />
-          <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">
-            Mission
-          </h3>
-          <p className="text-muted-foreground text-sm">
-            To be confirmed with the Principal's office and published here once
-            provided — placeholder reserved so this section is easy to complete.
-          </p>
-        </div>
-        <div className="border-border bg-card rounded-lg border p-6 shadow-sm">
-          <Eye className="text-primary mb-3 size-8" />
-          <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">
-            Vision
-          </h3>
-          <p className="text-muted-foreground text-sm">
-            To be confirmed with the Principal's office and published here once
-            provided — placeholder reserved so this section is easy to complete.
-          </p>
-        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
