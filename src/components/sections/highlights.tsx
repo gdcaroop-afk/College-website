@@ -1,10 +1,10 @@
 import { Link } from '@tanstack/react-router'
 
-import { ArtsScienceBadge } from '@/components/sections/generated-badges'
 import { highlights } from '@/data/highlights'
 import hedLogo from '@/assets/hed-punjab-logo.png'
 import uogLogo from '@/assets/uog-logo.png'
 import coeducationIcon from '@/assets/coeducation.png'
+import artsScienceLogo from '@/assets/Arts,Sciences&CS logo.jpg'
 
 function HighlightImage({ kind }: { kind: (typeof highlights)[number]['imageKind'] }) {
   switch (kind) {
@@ -13,11 +13,7 @@ function HighlightImage({ kind }: { kind: (typeof highlights)[number]['imageKind
     case 'uog-logo':
       return <img src={uogLogo} alt="University of Gujrat" className="h-8 w-auto object-contain" />
     case 'arts-science':
-      return (
-        <span className="bg-accent/15 text-primary flex size-9 items-center justify-center rounded-full">
-          <ArtsScienceBadge className="size-5" />
-        </span>
-      )
+      return <img src={artsScienceLogo} alt="Arts, Sciences & CS" className="size-9 rounded-full object-cover" />
     case 'co-education':
       return <img src={coeducationIcon} alt="Co-education" className="size-9 object-contain" />
 
