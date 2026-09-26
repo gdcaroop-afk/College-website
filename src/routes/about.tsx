@@ -1,5 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Landmark, Target, Eye, BookOpenCheck, Users, ShieldCheck } from 'lucide-react'
+import {
+  Landmark,
+  Target,
+  Eye,
+  BookOpenCheck,
+  Users,
+  ShieldCheck,
+  ClipboardCheck,
+  UserCheck,
+  DoorOpen,
+} from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { AffiliationBanner } from '@/components/sections/affiliation-banner'
@@ -33,9 +43,21 @@ const coreValues = [
 ] as const
 
 const leadershipPrinciples = [
-  'A structured, discipline-first approach to teaching',
-  'Faculty who know their students individually',
-  'An open door for admissions and academic questions',
+  {
+    icon: ClipboardCheck,
+    title: 'Discipline-First Teaching',
+    description: 'A structured, discipline-first approach to teaching and classroom management.',
+  },
+  {
+    icon: UserCheck,
+    title: 'Individual Attention',
+    description: 'Faculty who know their students individually, not as a roll number.',
+  },
+  {
+    icon: DoorOpen,
+    title: 'Open Access',
+    description: 'An open door for admissions and academic questions, at any time.',
+  },
 ] as const
 
 export const Route = createFileRoute('/about')({
@@ -156,21 +178,23 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6">
-        <h3 className="font-heading text-primary text-2xl font-bold">Our Leadership Philosophy</h3>
-        <p className="text-foreground/85 mt-3 text-base leading-relaxed text-pretty">
-          The college is run on a simple principle: consistent, hands-on academic
-          supervision produces better results than any single initiative. In
-          practice, that means:
-        </p>
-        <ul className="mt-4 flex flex-col gap-2">
-          {leadershipPrinciples.map((point) => (
-            <li key={point} className="text-foreground/85 flex items-start gap-2 text-base">
-              <span className="bg-primary mt-2 size-1.5 shrink-0 rounded-full" />
-              {point}
-            </li>
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <SectionHeading
+          eyebrow="Leadership"
+          title="Our Leadership Philosophy"
+          description="The college is run on a simple principle: consistent, hands-on academic supervision produces better results than any single initiative."
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {leadershipPrinciples.map((item) => (
+            <div key={item.title} className="border-border bg-card rounded-lg border p-6 shadow-sm">
+              <div className="bg-primary/10 text-primary mb-3 flex size-11 items-center justify-center rounded-full">
+                <item.icon className="size-5" />
+              </div>
+              <h3 className="font-heading text-foreground mb-2 text-lg font-semibold">{item.title}</h3>
+              <p className="text-muted-foreground text-sm">{item.description}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-4 sm:px-6">
