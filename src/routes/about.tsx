@@ -1,11 +1,20 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Landmark, Target, Eye, GraduationCap, BriefcaseBusiness } from 'lucide-react'
+import { Landmark, Target, Eye } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { AffiliationBanner } from '@/components/sections/affiliation-banner'
 import { site } from '@/data/site'
 import { principal } from '@/data/principal'
 import principalPhoto from '@/assets/principal-photo.png'
+import campusPhoto from '@/assets/Hero_section_background.jpg'
+import labPhoto from '@/assets/chemeistry_labs.jpg'
+import studentLifePhoto from '@/assets/sport_day_event.jpg'
+
+const aboutCards = [
+  { image: campusPhoto, title: 'Our Campus', description: 'The main academic block in Aroop, Gujranwala.' },
+  { image: labPhoto, title: 'Academics', description: 'Well-equipped science and computer laboratories.' },
+  { image: studentLifePhoto, title: 'Student Life', description: 'Sports, seminars and co-curricular activities.' },
+] as const
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -45,6 +54,27 @@ function AboutPage() {
         </div>
       </section>
 
+      <section className="mx-auto grid max-w-4xl gap-6 px-4 sm:grid-cols-3 sm:px-6">
+        {aboutCards.map((card) => (
+          <div
+            key={card.title}
+            className="bg-card group overflow-hidden rounded-xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+          >
+            <div className="relative h-36 w-full overflow-hidden">
+              <img
+                src={card.image}
+                alt={card.title}
+                className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="font-heading text-foreground text-sm font-semibold">{card.title}</h3>
+              <p className="text-muted-foreground text-xs">{card.description}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
       <section className="mx-auto grid max-w-4xl gap-6 px-4 sm:grid-cols-2 sm:px-6">
         <div className="border-border bg-card rounded-lg border p-6 shadow-sm">
           <Target className="text-primary mb-3 size-8" />
@@ -80,16 +110,7 @@ function AboutPage() {
           />
           <div>
             <h3 className="font-heading text-primary text-xl font-bold">{principal.name}</h3>
-            <p className="text-muted-foreground flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm">
-              <span className="flex items-center gap-1.5">
-                <GraduationCap className="size-4" />
-                {principal.qualifications.join(', ')}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <BriefcaseBusiness className="size-4" />
-                {principal.experience}
-              </span>
-            </p>
+            <p className="text-muted-foreground text-sm">{principal.designation}</p>
           </div>
           <p className="text-foreground/85 max-w-2xl text-base leading-relaxed text-pretty">
             Welcome to {site.name}. Our aim is simple: to give every student who
