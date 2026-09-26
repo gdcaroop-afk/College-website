@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { Mail, MapPin, Menu, Phone, X } from 'lucide-react'
+import { ChevronDown, Mail, MapPin, Menu, Phone, X } from 'lucide-react'
 import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
 
 import { LogoMark } from '@/components/shared/logo-mark'
@@ -8,9 +8,16 @@ import { Button } from '@/components/ui/button'
 import { site } from '@/data/site'
 import { cn } from '@/lib/utils'
 
+const aboutDropdown = [
+  { to: '/about', label: 'About Us' },
+  { to: '/admissions', label: 'Admissions' },
+  { to: '/academics', label: 'Academics' },
+  { to: '/faculty', label: 'Faculty & Staff' },
+  { to: '/gallery', label: 'Campus & Facilities' },
+] as const
+
 const navItems = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
   { to: '/academics', label: 'Academics' },
   { to: '/faculty', label: 'Faculty' },
   { to: '/gallery', label: 'Gallery' },
@@ -20,6 +27,7 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const [aboutOpen, setAboutOpen] = useState(false)
 
   return (
     <header className="bg-background/95 border-border sticky top-0 z-50 border-b backdrop-blur">
@@ -83,11 +91,54 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {navItems.map((item) => (
+          <Link
+            to="/"
+            activeOptions={{ exact: true }}
+            activeProps={{ className: 'text-primary bg-secondary' }}
+            className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-medium transition-colors"
+          >
+            Home
+          </Link>
+
+          <div
+            className="group relative"
+            onMouseEnter={() => setAboutOpen(true)}
+            onMouseLeave={() => setAboutOpen(false)}
+          >
+            <Link
+              to="/about"
+              activeProps={{ className: 'text-primary bg-secondary' }}
+              className="text-foreground/80 hover:bg-secondary hover:text-primary flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors"
+            >
+              About
+              <ChevronDown className="size-3.5" />
+            </Link>
+            <div
+              className={cn(
+                'border-border bg-card absolute left-0 top-full w-56 rounded-md border pt-1 shadow-lg transition-all duration-150',
+                aboutOpen
+                  ? 'visible translate-y-0 opacity-100'
+                  : 'invisible -translate-y-1 opacity-0',
+              )}
+            >
+              <div className="flex flex-col p-1.5">
+                {aboutDropdown.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.to}
+                    className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-medium transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {navItems.slice(1).map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              activeOptions={{ exact: item.to === '/' }}
               activeProps={{ className: 'text-primary bg-secondary' }}
               className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-medium transition-colors"
             >
@@ -113,18 +164,44 @@ export function Header() {
           open ? 'block' : 'hidden',
         )}
       >
-        {navItems.map((item) => (
+        <Link
+          to="/"
+          activeOptions={{ exact: true }}
+          activeProps={{ className: 'text-primary bg-secondary' }}
+          className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-medium"
+          onClick={() => setOpen(false)}
+        >
+          Home
+        </Link>
+
+        <span className="text-muted-foreground mt-1 px-3 text-xs font-semibold tracking-wide uppercase">
+          About
+        </span>
+        {aboutDropdown.map((item) => (
           <Link
-            key={item.to}
+            key={item.label}
             to={item.to}
-            activeOptions={{ exact: item.to === '/' }}
             activeProps={{ className: 'text-primary bg-secondary' }}
-            className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-medium"
+            className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 pl-6 text-sm font-medium"
             onClick={() => setOpen(false)}
           >
             {item.label}
           </Link>
         ))}
+
+        <div className="border-border mt-1 border-t pt-1">
+          {navItems.slice(1).map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              activeProps={{ className: 'text-primary bg-secondary' }}
+              className="text-foreground/80 hover:bg-secondary hover:text-primary rounded-md px-3 py-2 text-sm font-medium"
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </nav>
     </header>
   )

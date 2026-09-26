@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { BookOpen, Landmark, Target, Eye } from 'lucide-react'
+import { Landmark, Target, Eye, GraduationCap, BriefcaseBusiness } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { AffiliationBanner } from '@/components/sections/affiliation-banner'
 import { site } from '@/data/site'
+import { principal } from '@/data/principal'
+import principalPhoto from '@/assets/principal-photo.png'
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -67,16 +69,37 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 sm:px-6">
-        <div className="border-border bg-muted/40 flex flex-col gap-3 rounded-lg border border-dashed p-6">
-          <div className="flex items-center gap-2">
-            <BookOpen className="text-primary size-5" />
-            <h3 className="font-heading text-foreground font-semibold">
-              Principal's Message
-            </h3>
+        <div className="border-border bg-card flex flex-col items-center gap-4 rounded-lg border p-6 text-center shadow-sm sm:p-8">
+          <span className="text-accent-foreground bg-accent/20 w-fit rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase">
+            Principal's Message
+          </span>
+          <img
+            src={principalPhoto}
+            alt={principal.name}
+            className="border-primary/20 size-28 rounded-full border-2 object-cover shadow-md"
+          />
+          <div>
+            <h3 className="font-heading text-primary text-xl font-bold">{principal.name}</h3>
+            <p className="text-muted-foreground flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm">
+              <span className="flex items-center gap-1.5">
+                <GraduationCap className="size-4" />
+                {principal.qualifications.join(', ')}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <BriefcaseBusiness className="size-4" />
+                {principal.experience}
+              </span>
+            </p>
           </div>
-          <p className="text-muted-foreground text-sm">
-            Reserved for the Principal's welcome message — to be added once supplied
-            by the college.
+          <p className="text-foreground/85 max-w-2xl text-base leading-relaxed text-pretty">
+            Welcome to {site.name}. Our aim is simple: to give every student who
+            walks through our doors a disciplined, supportive environment in which
+            to build real academic ability — whether in the Arts, Sciences, or
+            Computer Studies. We believe in the fundamentals: regular classwork,
+            accessible faculty, and a campus where students are known individually,
+            not treated as a number. I encourage every student and parent to reach
+            out to us directly with any questions about admissions or academics —
+            we're glad to help.
           </p>
         </div>
       </section>
