@@ -14,8 +14,8 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 size-full object-cover"
       />
-      <div className="from-background via-background/85 to-background/40 absolute inset-0 bg-linear-to-t" />
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 sm:py-24">
+      <div className="from-background via-background/90 to-background/60 absolute inset-0 bg-linear-to-t" />
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 sm:py-20">
         <div className="flex flex-col gap-4">
           <span className="bg-primary text-primary-foreground mx-auto w-fit rounded-full px-4 py-1 text-sm font-semibold shadow-sm">
             {site.governance.department}
