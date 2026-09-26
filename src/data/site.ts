@@ -7,7 +7,7 @@
  */
 
 export const site = {
-  name: 'Govt. Graduate College Aroop, Gujranwala',
+  name: 'Govt. Graduate College Aroop Gujranwala',
   shortName: 'GGC Aroop',
   domain: 'ggca-grw.edu.pk',
   url: 'https://ggca-grw.edu.pk',
@@ -25,8 +25,8 @@ export const site = {
     // shown here with their source so the college can confirm the correct
     // one before this is treated as final.
     phones: [
-      { number: '055-3494000', source: 'University of Gujrat affiliation records' },
-      { number: '0331-6474947', source: 'University of Gujrat affiliation records' },
+      { number: '055-3494000', source: 'Govt Graduate College Aroop Record' },
+
     ],
     email: 'gdc.aroop@gmail.com',
   },

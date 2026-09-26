@@ -19,20 +19,20 @@ function StatItem({ icon: Icon, value, suffix, label, pending }: (typeof stats)[
   const { ref, value: count } = useCountUp(value)
 
   return (
-    <div ref={ref} className="flex flex-col items-center gap-2 text-center text-white">
-      <Icon className="size-7 opacity-90" strokeWidth={1.5} />
-      <span className="font-heading text-4xl font-bold sm:text-5xl">
+    <div ref={ref} className="flex flex-col items-center gap-1.5 text-center text-white">
+      <Icon className="size-5 opacity-90" strokeWidth={1.5} />
+      <span className="font-heading text-2xl font-bold">
         {pending ? 'Under 20' : `${count}${suffix}`}
       </span>
-      <span className="text-sm tracking-wide text-white/80 uppercase">{label}</span>
+      <span className="text-xs tracking-wide text-white/80 uppercase">{label}</span>
     </div>
   )
 }
 
 export function StatsCounter() {
   return (
-    <section className="bg-primary py-14">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-4 sm:px-6 lg:grid-cols-4">
+    <section className="bg-primary py-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 sm:px-6 lg:grid-cols-4">
         {stats.map((stat) => (
           <StatItem key={stat.label} {...stat} />
         ))}

@@ -43,16 +43,14 @@ function ContactPage() {
             <div>
               <h3 className="font-heading text-foreground font-semibold">Phone</h3>
               {site.contact.phones.map((p) => (
-                <p key={p.number} className="text-muted-foreground text-sm">
-                  {p.number}{' '}
-                  <span className="text-muted-foreground/70 text-xs italic">
-                    (as listed by {p.source})
-                  </span>
-                </p>
+                <a
+                  key={p.number}
+                  href={`tel:${p.number}`}
+                  className="text-primary block text-sm underline underline-offset-2"
+                >
+                  {p.number}
+                </a>
               ))}
-              <p className="text-muted-foreground/70 mt-1 text-xs italic">
-                To be confirmed with the college office before final publication.
-              </p>
             </div>
           </div>
 

@@ -1,7 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { ArrowRight, MapPin } from 'lucide-react'
 
-import { LogoMark } from '@/components/shared/logo-mark'
 import { Button } from '@/components/ui/button'
 import { site } from '@/data/site'
 import heroBackground from '@/assets/Hero_section_background.jpg'
@@ -16,20 +15,19 @@ export function Hero() {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="from-background via-background/85 to-background/40 absolute inset-0 bg-linear-to-t" />
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 sm:py-24">
-        <LogoMark className="border-primary/20 size-24 border-2 bg-white shadow-md sm:size-28" />
-        <div className="flex flex-col gap-4">
-          <span className="text-accent-foreground bg-accent/20 mx-auto w-fit rounded-full px-4 py-1 text-sm font-semibold">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6 sm:py-20">
+        <div className="flex flex-col gap-3">
+          <span className="bg-primary text-primary-foreground mx-auto w-fit rounded-full px-4 py-1 text-sm font-semibold shadow-sm">
             {site.governance.department}
           </span>
-          <h1 className="text-primary font-heading max-w-3xl text-4xl leading-tight font-bold text-balance sm:text-5xl">
+          <h1 className="text-primary font-heading max-w-2xl text-2xl leading-tight font-bold text-balance sm:text-3xl">
             {site.name}
           </h1>
           <p className="text-muted-foreground mx-auto flex max-w-xl items-center justify-center gap-1.5 text-sm">
             <MapPin className="size-4 shrink-0" />
             {site.address.line1}, {site.address.line2}
           </p>
-          <p className="text-foreground/80 mx-auto max-w-2xl text-lg text-pretty">
+          <p className="text-foreground/80 mx-auto max-w-2xl text-base text-pretty">
             A public sector college affiliated with the {site.affiliation.university},
             offering intermediate and bachelor's programs in Arts, Science, Computer
             Science and English.

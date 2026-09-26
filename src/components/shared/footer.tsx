@@ -78,8 +78,37 @@ export function Footer() {
       </div>
 
       <div className="border-primary-foreground/20 border-t">
-        <div className="text-primary-foreground/70 mx-auto max-w-7xl px-4 py-4 text-xs sm:px-6">
-          © {new Date().getFullYear()} {site.name}. {site.governance.department}.
+        <div className="text-primary-foreground/70 mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 px-4 py-4 text-xs sm:flex-row sm:px-6">
+          <span className="text-center">
+            © {new Date().getFullYear()} {site.name}. {site.governance.department}.
+          </span>
+          <div className="flex items-center gap-3">
+            <a
+              href={`mailto:${site.contact.email}`}
+              aria-label="Email"
+              className="hover:text-accent flex items-center gap-1"
+            >
+              <Mail className="size-3.5" />
+            </a>
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="hover:text-accent"
+            >
+              <IconBrandFacebook className="size-3.5" />
+            </a>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hover:text-accent"
+            >
+              <IconBrandInstagram className="size-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { Menu, X } from 'lucide-react'
+import { Mail, MapPin, Menu, Phone, X } from 'lucide-react'
+import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
 
 import { LogoMark } from '@/components/shared/logo-mark'
 import { Button } from '@/components/ui/button'
@@ -22,13 +23,51 @@ export function Header() {
 
   return (
     <header className="bg-background/95 border-border sticky top-0 z-50 border-b backdrop-blur">
-      {/* Top strip — official identity bar */}
+      {/* Top utility bar — contact info + social */}
       <div className="bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-1.5 text-xs sm:px-6">
-          <span className="truncate">
-            {site.governance.department}
-          </span>
-          <span className="hidden truncate sm:block">{site.domain}</span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 text-xs sm:px-6">
+          <div className="flex min-w-0 items-center gap-4">
+            <a
+              href={`mailto:${site.contact.email}`}
+              className="hover:text-accent flex items-center gap-1.5 truncate"
+            >
+              <Mail className="size-3.5 shrink-0" />
+              <span className="truncate">{site.contact.email}</span>
+            </a>
+            <a
+              href={`tel:${site.contact.phones[0]?.number}`}
+              className="hover:text-accent hidden items-center gap-1.5 sm:flex"
+            >
+              <Phone className="size-3.5 shrink-0" />
+              {site.contact.phones[0]?.number}
+            </a>
+            <span className="hidden items-center gap-1.5 truncate md:flex">
+              <MapPin className="size-3.5 shrink-0" />
+              <span className="truncate">
+                {site.address.line1}, {site.address.line2}
+              </span>
+            </span>
+          </div>
+          <div className="flex shrink-0 items-center gap-3">
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="hover:text-accent"
+            >
+              <IconBrandFacebook className="size-3.5" />
+            </a>
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hover:text-accent"
+            >
+              <IconBrandInstagram className="size-3.5" />
+            </a>
+          </div>
         </div>
       </div>
 
