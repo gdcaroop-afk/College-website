@@ -37,7 +37,7 @@ export function Hero() {
         <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
           <Link
             to="/academics"
-            className="bg-accent text-accent-foreground inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold tracking-wide uppercase shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:brightness-110"
+            className="bg-primary text-primary-foreground border-2 border-white inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-semibold tracking-wide uppercase shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-primary hover:shadow-xl"
           >
             Explore Programs
             <ArrowRight className="size-4" />

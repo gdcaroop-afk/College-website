@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Hero } from '@/components/sections/hero'
 import { Highlights } from '@/components/sections/highlights'
 import { InstitutionalOverview } from '@/components/sections/institutional-overview'
+import { StatsCounter } from '@/components/sections/stats-counter'
 import { ProgramsPreview } from '@/components/sections/programs-preview'
 import { CampusLife } from '@/components/sections/campus-life'
 import { EventsPreview } from '@/components/sections/events-preview'
@@ -29,6 +30,7 @@ function HomePage() {
       <Hero />
       <Highlights />
       <InstitutionalOverview />
+      <StatsCounter />
       <ProgramsPreview />
       <CampusLife />
       <EventsPreview />

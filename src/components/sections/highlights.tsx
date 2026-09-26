@@ -1,45 +1,50 @@
-import { BookOpen, GraduationCap, Landmark, Users } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
 
-import { site } from '@/data/site'
+import { ArtsScienceBadge, CoEducationBadge } from '@/components/sections/generated-badges'
+import { highlights } from '@/data/highlights'
+import hedLogo from '@/assets/hed-punjab-logo.png'
+import uogLogo from '@/assets/uog-logo.png'
 
-const highlights = [
-  {
-    icon: Landmark,
-    title: 'Public Sector Institution',
-    description: site.governance.department,
-  },
-  {
-    icon: GraduationCap,
-    title: 'UOG Affiliated',
-    description: `Degree programs affiliated with the ${site.affiliation.university}`,
-  },
-  {
-    icon: BookOpen,
-    title: 'Arts, Science & CS',
-    description: 'Intermediate and BS programs across multiple disciplines',
-  },
-  {
-    icon: Users,
-    title: site.gender,
-    description: 'Serving students of Aroop and the surrounding Gujranwala area',
-  },
-] as const
+function HighlightImage({ kind }: { kind: (typeof highlights)[number]['imageKind'] }) {
+  switch (kind) {
+    case 'hed-logo':
+      return <img src={hedLogo} alt="Higher Education Department, Punjab" className="size-14 object-contain" />
+    case 'uog-logo':
+      return <img src={uogLogo} alt="University of Gujrat" className="h-12 w-auto object-contain" />
+    case 'arts-science':
+      return (
+        <span className="bg-accent/15 text-primary flex size-14 items-center justify-center rounded-full">
+          <ArtsScienceBadge className="size-8" />
+        </span>
+      )
+    case 'co-education':
+      return (
+        <span className="bg-accent/15 text-primary flex size-14 items-center justify-center rounded-full">
+          <CoEducationBadge className="size-8" />
+        </span>
+      )
+  }
+}
 
 export function Highlights() {
   return (
     <section className="relative z-10 mx-auto -mt-16 max-w-7xl px-4 sm:px-6">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {highlights.map(({ icon: Icon, title, description }) => (
-          <div
-            key={title}
-            className="bg-card flex flex-col items-center gap-3 rounded-xl p-7 text-center shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+        {highlights.map((item) => (
+          <Link
+            key={item.slug}
+            to="/highlights/$slug"
+            params={{ slug: item.slug }}
+            className="bg-card group flex flex-col items-center gap-3 rounded-xl p-7 text-center shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
           >
-            <span className="bg-accent/15 text-accent-foreground flex size-14 items-center justify-center rounded-full">
-              <Icon className="size-6" />
+            <span className="flex h-16 items-center justify-center">
+              <HighlightImage kind={item.imageKind} />
             </span>
-            <h3 className="font-heading text-foreground font-semibold">{title}</h3>
-            <p className="text-muted-foreground text-sm">{description}</p>
-          </div>
+            <h3 className="font-heading text-foreground group-hover:text-primary font-semibold transition-colors">
+              {item.title}
+            </h3>
+            <p className="text-muted-foreground text-sm">{item.summary}</p>
+          </Link>
         ))}
       </div>
     </section>
