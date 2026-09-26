@@ -15,12 +15,6 @@ export type Program = {
 
 export const programs: Program[] = [
   {
-    slug: 'associate-degree-arts',
-    level: 'Undergraduate (Associate/BA)',
-    title: 'Associate Degree Programme in Arts',
-    duration: '2 years',
-  },
-  {
     slug: 'fa-humanities-arts',
     level: 'Intermediate',
     title: 'F.A. (Humanities/Arts)',
@@ -65,12 +59,4 @@ export const programs: Program[] = [
 
 // Listed in UOG's affiliation records but not yet confirmed on the HED
 // Punjab program listing — shown separately pending confirmation.
-export const programsPendingConfirmation: Program[] = [
-  {
-    slug: 'bs-commerce',
-    level: 'Bachelor (BS)',
-    title: 'BS Commerce',
-    duration: '4 years',
-    note: 'Listed in University of Gujrat affiliation records — to be confirmed with the college office.',
-  },
-]
+export const programsPendingConfirmation: Program[] = []

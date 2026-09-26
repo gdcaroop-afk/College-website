@@ -82,34 +82,7 @@ export function Footer() {
           <span className="text-center">
             © {new Date().getFullYear()} {site.name}. {site.governance.department}.
           </span>
-          <div className="flex items-center gap-3">
-            <a
-              href={`mailto:${site.contact.email}`}
-              aria-label="Email"
-              className="hover:text-accent flex items-center gap-1"
-            >
-              <Mail className="size-3.5" />
-            </a>
-            <a
-              href={site.social.facebook}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Facebook"
-              className="hover:text-accent"
-            >
-              <IconBrandFacebook className="size-3.5" />
-            </a>
-            <a
-              href={site.social.instagram}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-              className="hover:text-accent"
-            >
-              <IconBrandInstagram className="size-3.5" />
-            </a>
-          </div>
-        </div>
+                 </div>
       </div>
     </footer>
   )

@@ -89,16 +89,4 @@ export const programDetails: Record<string, ProgramDetail> = {
     ],
     sources: [{ label: `${site.governance.department} — program listing`, url: site.governance.hepUrl }],
   },
-  'associate-degree-arts': {
-    overview:
-      'The Associate Degree Programme in Arts is a two-year undergraduate program administered under the Higher Education Department, Punjab.',
-    facts: [{ label: 'Duration', value: '2 years' }],
-    sources: [{ label: `${site.governance.department} — program listing`, url: site.governance.hepUrl }],
-  },
-  'bs-commerce': {
-    overview:
-      'BS Commerce is listed in the University of Gujrat’s public sector college affiliation records for this college, but is not yet confirmed on the HED Punjab program listing.',
-    facts: [{ label: 'Duration', value: '4 years' }],
-    sources: [{ label: 'UOG public sector colleges affiliation list', url: site.affiliation.universityUrl }],
-  },
 }
