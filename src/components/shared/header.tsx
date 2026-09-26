@@ -75,7 +75,7 @@ export function Header() {
         <Link to="/" className="flex items-center gap-3">
           <LogoMark />
           <span className="leading-tight">
-            <span className="font-heading text-primary block text-lg font-extrabold sm:text-xl">
+            <span className="font-heading text-primary block text-sm font-bold sm:text-base">
               {site.name}
             </span>
             <span className="text-muted-foreground block text-xs">
