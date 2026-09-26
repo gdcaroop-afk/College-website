@@ -1,41 +1,50 @@
-import { BookOpen, Cpu, FlaskConical, Languages, GraduationCap } from 'lucide-react'
+import { Handshake } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-
-type Kind = 'arts' | 'science' | 'computer' | 'english' | 'general'
-
-function kindOf(title: string): Kind {
-  if (/computer science|ics/i.test(title)) return 'computer'
-  if (/pre-medical/i.test(title)) return 'science'
-  if (/english/i.test(title)) return 'english'
-  if (/associate|f\.a\.|arts/i.test(title)) return 'arts'
-  return 'general'
-}
-
-const config: Record<Kind, { icon: typeof BookOpen; from: string; to: string }> = {
-  arts: { icon: GraduationCap, from: 'from-primary', to: 'to-primary/60' },
-  science: { icon: FlaskConical, from: 'from-primary/90', to: 'to-accent/70' },
-  computer: { icon: Cpu, from: 'from-primary', to: 'to-primary/70' },
-  english: { icon: Languages, from: 'from-primary/80', to: 'to-primary/50' },
-  general: { icon: BookOpen, from: 'from-primary', to: 'to-primary/60' },
-}
+import { programPoster } from '@/data/program-poster'
+import collegeLogo from '@/assets/college-logo.jpg'
+import hedLogo from '@/assets/hed-punjab-logo.png'
+import uogLogo from '@/assets/uog-logo.png'
 
 /**
- * Self-generated (not photographic) illustration panel for a program card:
- * a colored gradient in the site's own palette with a large subject icon and
- * a faint repeating watermark pattern, in place of a stock/generic photo.
+ * Self-generated (not photographic) "poster" for a program card: the
+ * college logo and the relevant partner logo (UOG for BS degrees, HED
+ * Punjab for Intermediate/Associate programs) flanking a handshake mark,
+ * with the program name below — in place of a stock/generic photo.
  */
-export function ProgramIllustration({ title, className }: { title: string; className?: string }) {
-  const { icon: Icon, from, to } = config[kindOf(title)]
+export function ProgramIllustration({ slug, className }: { slug: string; className?: string }) {
+  const poster = programPoster[slug] ?? {
+    shortTitle: slug,
+    subtitle: '',
+    partner: 'hed' as const,
+  }
+  const partnerLogo = poster.partner === 'uog' ? uogLogo : hedLogo
+  const partnerAlt = poster.partner === 'uog' ? 'University of Gujrat' : 'Higher Education Department, Punjab'
 
   return (
-    <div className={cn('relative flex items-center justify-center bg-linear-to-br', from, to, className)}>
-      <div className="absolute inset-0 grid grid-cols-6 gap-4 p-4 opacity-10">
-        {Array.from({ length: 24 }).map((_, i) => (
-          <Icon key={i} className="size-full text-white" strokeWidth={1} />
-        ))}
+    <div
+      className={cn(
+        'from-primary to-primary/70 flex flex-col items-center justify-center gap-3 bg-linear-to-br p-4',
+        className,
+      )}
+    >
+      <div className="flex items-center gap-3">
+        <img
+          src={collegeLogo}
+          alt="Govt. Graduate College Aroop"
+          className="size-10 rounded-full bg-white object-cover p-0.5 shadow-md"
+        />
+        <Handshake className="size-6 text-white/90" strokeWidth={1.75} />
+        <img
+          src={partnerLogo}
+          alt={partnerAlt}
+          className="h-8 max-w-16 rounded bg-white object-contain px-1.5 py-1 shadow-md"
+        />
       </div>
-      <Icon className="relative size-16 text-white drop-shadow-lg" strokeWidth={1.5} />
+      <div className="text-center">
+        <div className="font-heading text-lg font-bold text-white">{poster.shortTitle}</div>
+        <div className="text-xs font-semibold tracking-wide text-white/85 uppercase">{poster.subtitle}</div>
+      </div>
     </div>
   )
 }

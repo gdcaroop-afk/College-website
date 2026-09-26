@@ -18,7 +18,7 @@ export function ProgramCard({ program, dashed = false }: { program: Program; das
     >
       <div className="relative h-44 w-full overflow-hidden">
         <ProgramIllustration
-          title={program.title}
+          slug={program.slug}
           className="size-full transition-transform duration-500 group-hover:scale-110"
         />
         <span className="bg-card text-primary absolute top-3 left-3 flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold shadow-md">

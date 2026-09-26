@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router'
-import { MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
 
 import { LogoMark } from '@/components/shared/logo-mark'
@@ -47,6 +47,13 @@ export function Footer() {
             <Phone className="size-4 shrink-0" />
             {site.contact.phones[0]?.number}
           </span>
+          <a
+            href={`mailto:${site.contact.email}`}
+            className="text-primary-foreground/80 hover:text-accent flex items-center gap-2 w-fit"
+          >
+            <Mail className="size-4 shrink-0" />
+            {site.contact.email}
+          </a>
           <div className="mt-1 flex items-center gap-3">
             <a
               href={site.social.facebook}

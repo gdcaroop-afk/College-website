@@ -31,7 +31,7 @@ function ProgramDetailPage() {
         Back to Academics
       </Link>
 
-      <ProgramIllustration title={program.title} className="mb-6 h-48 w-full rounded-2xl" />
+      <ProgramIllustration slug={program.slug} className="mb-6 h-48 w-full rounded-2xl" />
 
       <Badge variant="secondary" className="w-fit">
         {program.level}

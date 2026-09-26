@@ -60,10 +60,12 @@ function ContactPage() {
             <Mail className="text-primary mt-0.5 size-5 shrink-0" />
             <div>
               <h3 className="font-heading text-foreground font-semibold">Email</h3>
-              <p className="text-muted-foreground text-sm">
-                No official public email address found yet — to be added once
-                confirmed.
-              </p>
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="text-primary text-sm underline underline-offset-2"
+              >
+                {site.contact.email}
+              </a>
             </div>
           </div>
 

@@ -1,25 +1,28 @@
-import { BookOpenCheck, Building2, CalendarDays, Images } from 'lucide-react'
+import { BookOpenCheck, GraduationCap, UserRoundCheck, Users } from 'lucide-react'
 
 import { useCountUp } from '@/hooks/use-count-up'
-import { programs, programsPendingConfirmation } from '@/data/programs'
-import { departments } from '@/data/faculty'
-import { events } from '@/data/events'
-import { gallery } from '@/data/gallery'
+import { programs } from '@/data/programs'
+
+const intermediateCount = programs.filter((p) => !p.level.startsWith('Bachelor')).length
+const bachelorCount = programs.filter((p) => p.level.startsWith('Bachelor')).length
 
 const stats = [
-  { icon: BookOpenCheck, value: programs.length + programsPendingConfirmation.length, label: 'Academic Programs' },
-  { icon: Building2, value: departments.length, label: 'Departments' },
-  { icon: CalendarDays, value: events.length, label: 'Documented Events' },
-  { icon: Images, value: gallery.filter((g) => g.src).length, label: 'Campus Photos' },
+  { icon: BookOpenCheck, value: intermediateCount, suffix: '', label: 'Intermediate Programs', pending: false },
+  { icon: GraduationCap, value: bachelorCount, suffix: '', label: "Bachelor's Programs", pending: false },
+  { icon: Users, value: 500, suffix: '+', label: 'Total Students', pending: false },
+  // TODO_CONFIRM: faculty count not yet provided — placeholder until confirmed.
+  { icon: UserRoundCheck, value: 0, suffix: '', label: 'Faculty Members', pending: true },
 ] as const
 
-function StatItem({ icon: Icon, value, label }: (typeof stats)[number]) {
+function StatItem({ icon: Icon, value, suffix, label, pending }: (typeof stats)[number]) {
   const { ref, value: count } = useCountUp(value)
 
   return (
     <div ref={ref} className="flex flex-col items-center gap-2 text-center text-white">
       <Icon className="size-7 opacity-90" strokeWidth={1.5} />
-      <span className="font-heading text-4xl font-bold sm:text-5xl">{count}+</span>
+      <span className="font-heading text-4xl font-bold sm:text-5xl">
+        {pending ? 'TBD' : `${count}${suffix}`}
+      </span>
       <span className="text-sm tracking-wide text-white/80 uppercase">{label}</span>
     </div>
   )

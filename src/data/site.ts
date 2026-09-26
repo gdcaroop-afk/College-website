@@ -28,7 +28,7 @@ export const site = {
       { number: '055-3494000', source: 'University of Gujrat affiliation records' },
       { number: '0331-6474947', source: 'University of Gujrat affiliation records' },
     ],
-    email: null, // TODO_CONFIRM: no official public email address found yet.
+    email: 'gdc.aroop@gmail.com',
   },
   social: {
     facebook: 'https://www.facebook.com/ggc.aroop',

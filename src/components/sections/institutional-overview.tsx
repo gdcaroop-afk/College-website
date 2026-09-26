@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { site } from '@/data/site'
 import { programs } from '@/data/programs'
 import campusPhoto from '@/assets/3.jpg'
+import coeducationIcon from '@/assets/coeducation.png'
 
 export function InstitutionalOverview() {
   return (
@@ -29,27 +30,34 @@ export function InstitutionalOverview() {
             with the {site.affiliation.university}.
           </p>
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="flex flex-col gap-1">
-              <span className="text-primary flex items-center gap-1.5 text-2xl font-bold">
+              <span className="text-primary font-heading flex items-center gap-1.5 text-2xl font-bold">
                 <BookOpenCheck className="size-5" />
                 {programs.length}+
               </span>
               <span className="text-muted-foreground text-xs">Academic programs</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-primary flex items-center gap-1.5 text-2xl font-bold">
+              <span className="text-primary font-heading flex items-center gap-1.5 text-2xl font-bold">
                 <GraduationCap className="size-5" />
                 UOG
               </span>
               <span className="text-muted-foreground text-xs">Degree affiliation</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-primary flex items-center gap-1.5 text-2xl font-bold">
+              <span className="text-primary font-heading flex items-center gap-1.5 text-2xl font-bold">
                 <Landmark className="size-5" />
                 Punjab
               </span>
               <span className="text-muted-foreground text-xs">Public sector, HED</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-primary font-heading flex items-center gap-1.5 text-2xl font-bold">
+                <img src={coeducationIcon} alt="" className="size-5" />
+                {site.gender}
+              </span>
+              <span className="text-muted-foreground text-xs">Student body</span>
             </div>
           </div>
 
