@@ -74,13 +74,11 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" className="flex items-center gap-3">
           <LogoMark />
-          <span className="leading-tight">
-            <span className="font-heading text-primary block text-sm font-bold sm:text-base">
-              {site.name}
+          <span className="text-center leading-tight">
+            <span className="font-heading text-primary block text-base font-bold sm:text-lg">
+              {site.shortName}
             </span>
-            <span className="text-muted-foreground block text-xs">
-              {site.address.line1}, {site.address.line2}
-            </span>
+            <span className="text-muted-foreground block text-xs italic">{site.tagline}</span>
           </span>
         </Link>
 

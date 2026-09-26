@@ -8,7 +8,7 @@
 
 export const site = {
   name: 'Govt. Graduate College Aroop Gujranwala',
-  shortName: 'GGC Aroop',
+  shortName: 'GGCA',
   domain: 'ggca-grw.edu.pk',
   url: 'https://ggca-grw.edu.pk',
   tagline: 'العلم النور — Knowledge is Light',
