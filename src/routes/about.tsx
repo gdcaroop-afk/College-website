@@ -3,18 +3,10 @@ import { Landmark, Target, Eye } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { AffiliationBanner } from '@/components/sections/affiliation-banner'
+import { GalleryGrid } from '@/components/sections/gallery-grid'
 import { site } from '@/data/site'
 import { principal } from '@/data/principal'
 import principalPhoto from '@/assets/principal-photo.png'
-import campusPhoto from '@/assets/Hero_section_background.jpg'
-import labPhoto from '@/assets/chemeistry_labs.jpg'
-import studentLifePhoto from '@/assets/sport_day_event.jpg'
-
-const aboutCards = [
-  { image: campusPhoto, title: 'Our Campus', description: 'The main academic block in Aroop, Gujranwala.' },
-  { image: labPhoto, title: 'Academics', description: 'Well-equipped science and computer laboratories.' },
-  { image: studentLifePhoto, title: 'Student Life', description: 'Sports, seminars and co-curricular activities.' },
-] as const
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -54,25 +46,8 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-4xl gap-6 px-4 sm:grid-cols-3 sm:px-6">
-        {aboutCards.map((card) => (
-          <div
-            key={card.title}
-            className="bg-card group overflow-hidden rounded-xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-          >
-            <div className="relative h-36 w-full overflow-hidden">
-              <img
-                src={card.image}
-                alt={card.title}
-                className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="font-heading text-foreground text-sm font-semibold">{card.title}</h3>
-              <p className="text-muted-foreground text-xs">{card.description}</p>
-            </div>
-          </div>
-        ))}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+        <GalleryGrid limit={8} className="sm:grid-cols-4" />
       </section>
 
       <section className="mx-auto grid max-w-4xl gap-6 px-4 sm:grid-cols-2 sm:px-6">
