@@ -11,6 +11,8 @@ import mainBuilding from '@/assets/3.jpg'
 import admissionDesk from '@/assets/addmission_desk.jpg'
 import admissionDesk2 from '@/assets/addmission_desk_2.jpg'
 import ramzanSeminar from '@/assets/ramzan_kareem_seminar.jpg'
+import admissionDesk3 from '@/assets/addmission_desk_3.jpg'
+import ptmNotice from '@/assets/ptm.jpg'
 
 export type GalleryImage = {
   id: string
@@ -26,4 +28,6 @@ export const gallery: GalleryImage[] = [
   { id: 'campus-4', src: admissionDesk, alt: 'Admission desk — F.A. Part I', caption: 'Admission desk (F.A. Part I)' },
   { id: 'campus-5', src: admissionDesk2, alt: 'Admission desk — F.A. Part II', caption: 'Admission desk (F.A. Part II)' },
   { id: 'campus-6', src: ramzanSeminar, alt: 'Ramzan-ul-Mubarak awareness seminar with students', caption: 'Ramzan Kareem Seminar' },
+  { id: 'campus-7', src: admissionDesk3, alt: 'Admission desk — ICS Part I & II', caption: 'Admission desk (ICS)' },
+  { id: 'campus-8', src: ptmNotice, alt: 'Parent Teacher Meeting notice board', caption: 'Parent Teacher Meeting (PTM)' },
 ]
