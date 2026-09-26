@@ -46,4 +46,5 @@ export const site = {
       'https://hep.punjab.gov.pk/Publicprograms/institute_detail/?institute_id=929&subject_id=3335',
   },
   gender: 'Co-education',
+  foundedYear: 2014,
 } as const
