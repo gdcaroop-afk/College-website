@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Govt. Graduate College Aroop — brand tokens
+   Derived from the official college seal: forest green (wreath / crest
+   text), warm gold (the flame/lamp of knowledge), and a deep navy used in
+   the seal's outer ring. Hue angles kept close to the source artwork.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.99 0.004 120);
+  --foreground: oklch(0.22 0.02 145);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 145);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 145);
+
+  /* Primary: deep forest green from the seal's crest */
+  --primary: oklch(0.34 0.075 152);
+  --primary-foreground: oklch(0.98 0.01 120);
+
+  --secondary: oklch(0.95 0.015 145);
+  --secondary-foreground: oklch(0.28 0.03 150);
+
+  --muted: oklch(0.96 0.008 120);
+  --muted-foreground: oklch(0.48 0.02 150);
+
+  /* Accent: warm gold from the flame of knowledge */
+  --accent: oklch(0.77 0.14 80);
+  --accent-foreground: oklch(0.22 0.03 90);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0.005 85);
+
+  --border: oklch(0.9 0.012 140);
+  --input: oklch(0.9 0.012 140);
+  --ring: oklch(0.6 0.06 150);
+
+  /* Deep navy used for the seal's outer ring — used sparingly for depth */
+  --navy: oklch(0.3 0.05 268);
+
+  --chart-1: oklch(0.34 0.075 152);
+  --chart-2: oklch(0.77 0.14 80);
+  --chart-3: oklch(0.5 0.06 152);
+  --chart-4: oklch(0.6 0.1 80);
+  --chart-5: oklch(0.3 0.05 268);
+}
+
+.dark {
+  --background: oklch(0.16 0.014 150);
+  --foreground: oklch(0.95 0.01 120);
+
+  --card: oklch(0.2 0.016 150);
+  --card-foreground: oklch(0.95 0.01 120);
+
+  --popover: oklch(0.2 0.016 150);
+  --popover-foreground: oklch(0.95 0.01 120);
+
+  --primary: oklch(0.68 0.09 152);
+  --primary-foreground: oklch(0.16 0.02 150);
+
+  --secondary: oklch(0.27 0.02 150);
+  --secondary-foreground: oklch(0.95 0.01 120);
+
+  --muted: oklch(0.27 0.02 150);
+  --muted-foreground: oklch(0.68 0.02 145);
+
+  --accent: oklch(0.8 0.13 80);
+  --accent-foreground: oklch(0.2 0.03 90);
+
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.98 0.005 85);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.55 0.06 150);
+
+  --navy: oklch(0.55 0.06 268);
+
+  --chart-1: oklch(0.68 0.09 152);
+  --chart-2: oklch(0.8 0.13 80);
+  --chart-3: oklch(0.55 0.07 152);
+  --chart-4: oklch(0.65 0.1 80);
+  --chart-5: oklch(0.55 0.06 268);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-sans: 'Source Sans 3', system-ui, sans-serif;
+  --font-heading: 'Merriweather', Georgia, serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+
+  button,
+  a {
+    @apply cursor-pointer;
+  }
+
+  :disabled,
+  [disabled] {
+    @apply cursor-not-allowed opacity-60;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Subtle diagonal seal-watermark pattern for section backgrounds */
+  .bg-emblem-pattern {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      var(--border) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+}

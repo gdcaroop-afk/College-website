@@ -1,0 +1,52 @@
+import { Link } from '@tanstack/react-router'
+import { ArrowRight, MapPin } from 'lucide-react'
+
+import { LogoMark } from '@/components/shared/logo-mark'
+import { Button } from '@/components/ui/button'
+import { site } from '@/data/site'
+import heroBackground from '@/assets/Hero_section_background.jpg'
+
+export function Hero() {
+  return (
+    <section className="border-border relative overflow-hidden border-b">
+      <img
+        src={heroBackground}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 size-full object-cover"
+      />
+      <div className="from-background via-background/90 to-background/70 absolute inset-0 bg-linear-to-t" />
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 sm:py-24">
+        <LogoMark className="border-primary/20 size-24 border-2 bg-white shadow-md sm:size-28" />
+        <div className="flex flex-col gap-4">
+          <span className="text-accent-foreground bg-accent/20 mx-auto w-fit rounded-full px-4 py-1 text-sm font-semibold">
+            {site.governance.department}
+          </span>
+          <h1 className="text-primary font-heading max-w-3xl text-4xl leading-tight font-bold text-balance sm:text-5xl">
+            {site.name}
+          </h1>
+          <p className="text-muted-foreground mx-auto flex max-w-xl items-center justify-center gap-1.5 text-sm">
+            <MapPin className="size-4 shrink-0" />
+            {site.address.line1}, {site.address.line2}
+          </p>
+          <p className="text-foreground/80 mx-auto max-w-2xl text-lg text-pretty">
+            A public sector college affiliated with the {site.affiliation.university},
+            offering intermediate and bachelor's programs in Arts, Science, Computer
+            Science and English.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Button size="lg" asChild>
+            <Link to="/academics">
+              Explore Programs
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+          <Button size="lg" variant="outline" asChild>
+            <Link to="/about">About the College</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
