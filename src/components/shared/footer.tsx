@@ -144,13 +144,13 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-primary-foreground/20 border-t bg-black/20">
-        <div className="text-primary-foreground/70 mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-3 text-xs sm:flex-row sm:px-6">
-          <span className="text-center">
+      <div className="border-primary-foreground/20 border-t bg-black/25">
+        <div className="text-primary-foreground/75 mx-auto flex max-w-7xl flex-col items-center justify-center gap-1.5 px-4 py-4 text-xs text-center sm:px-6">
+          <span>
             © {new Date().getFullYear()} {site.name}. {site.governance.department}.
           </span>
-          <span className="text-primary-foreground/60 text-[11px]">
-            Affiliated with {site.affiliation.university}
+          <span className="text-accent font-semibold text-[11px] tracking-wide">
+            Powered by 9T Solutions
           </span>
         </div>
       </div>

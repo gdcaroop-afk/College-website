@@ -18,7 +18,6 @@ import {
 
 import { departments, facultyMembers, type FacultyMember } from '@/data/faculty'
 import { site } from '@/data/site'
-import { InstitutionLogo } from '@/components/shared/institution-logo'
 
 export const Route = createFileRoute('/faculty')({
   component: FacultyPage,
@@ -148,30 +147,7 @@ function ProfileModal({
             </div>
           )}
 
-          {/* Alma Mater Institutions with Official Logos */}
-          <div>
-            <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground mb-2">
-              <Building2 className="size-5 text-primary" />
-              Educational Institutions & Alma Mater
-            </h3>
-            <div className="flex flex-col gap-2.5">
-              {member.institutions.map((inst) => (
-                <div
-                  key={inst.shortName}
-                  className="flex items-center justify-between rounded-xl bg-muted/40 border border-border/60 p-3 text-xs"
-                >
-                  <div className="flex items-center gap-3">
-                    <InstitutionLogo code={inst.shortName} showLabel={false} size="lg" />
-                    <div>
-                      <p className="font-bold text-foreground text-xs sm:text-sm">{inst.fullName}</p>
-                      <p className="text-[11px] text-muted-foreground font-medium">Official Higher Education Alma Mater</p>
-                    </div>
-                  </div>
-                  <InstitutionLogo code={inst.shortName} showLabel={true} />
-                </div>
-              ))}
-            </div>
-          </div>
+
 
           {/* Close Modal CTA */}
           <div className="pt-2 flex justify-end">
@@ -199,11 +175,7 @@ function FacultyPage() {
         m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.designation.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        m.qualification.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        m.institutions.some((inst) =>
-          inst.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          inst.shortName.toLowerCase().includes(searchQuery.toLowerCase())
-        )
+        m.qualification.toLowerCase().includes(searchQuery.toLowerCase())
 
       const matchesDept =
         selectedDept === 'All Departments' ||
