@@ -54,20 +54,45 @@ function ProgramDetailPage() {
   const { program, detail } = Route.useLoaderData()
 
   return (
-    <article className="font-sans mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      {/* Back button */}
-      <div className="mb-6 flex flex-wrap items-center gap-3">
-        <Link
-          to="/academics"
-          className="bg-background border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground dark:bg-card dark:hover:bg-primary shadow-xs px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 text-xs font-semibold transition-all duration-200"
-        >
-          <ArrowLeft className="size-3.5" />
-          <span>Back to Academics</span>
-        </Link>
-        <span className="bg-accent/20 text-accent-foreground px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-          {program.level}
-        </span>
-      </div>
+    <div>
+      {/* Full-width Breadcrumb Bar */}
+      <section className="bg-muted/40 border-border/80 border-y py-2.5">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <nav className="flex items-center gap-2 text-xs text-muted-foreground sm:text-sm">
+            <Link to="/" className="text-primary hover:underline font-medium">
+              Home
+            </Link>
+            <span className="opacity-40">/</span>
+            <Link to="/academics" className="text-primary hover:underline font-medium">
+              Academics
+            </Link>
+            <span className="opacity-40">/</span>
+            <span className="text-foreground font-semibold truncate">{program.title}</span>
+          </nav>
+        </div>
+      </section>
+
+      <article className="font-sans mx-auto max-w-3xl px-4 py-8 sm:px-6">
+        {/* Navigation buttons */}
+        <div className="mb-6 flex flex-wrap items-center gap-3">
+          <Link
+            to="/"
+            className="bg-background border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground dark:bg-card dark:hover:bg-primary shadow-xs px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 text-xs font-semibold transition-all duration-200"
+          >
+            <ArrowLeft className="size-3.5" />
+            <span>Home</span>
+          </Link>
+          <Link
+            to="/academics"
+            className="bg-background border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground dark:bg-card dark:hover:bg-primary shadow-xs px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 text-xs font-semibold transition-all duration-200"
+          >
+            <ArrowLeft className="size-3.5" />
+            <span>Back to Academics</span>
+          </Link>
+          <span className="bg-accent/20 text-accent-foreground px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+            {program.level}
+          </span>
+        </div>
 
       {/* Title + tagline */}
       <h1 className="font-heading text-primary text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -298,6 +323,7 @@ function ProgramDetailPage() {
         </div>
       ) : null}
     </article>
+    </div>
   )
 }
 

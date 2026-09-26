@@ -18,6 +18,7 @@ import {
 
 import { departments, facultyMembers, type FacultyMember } from '@/data/faculty'
 import { site } from '@/data/site'
+import { InstitutionLogo } from '@/components/shared/institution-logo'
 
 export const Route = createFileRoute('/faculty')({
   component: FacultyPage,
@@ -61,13 +62,13 @@ function ProfileModal({
         {/* Modal Header / Banner */}
         <div className="bg-gradient-to-r from-primary/15 via-secondary to-accent/15 border-b border-border/60 p-6 sm:p-8">
           <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
-            <div className="relative size-28 shrink-0 overflow-hidden rounded-2xl border-2 border-primary/30 shadow-md sm:size-32">
+            <div className="relative size-28 shrink-0 overflow-hidden rounded-2xl border-2 border-primary/30 shadow-md sm:size-32 bg-muted/20">
               <img
                 src={member.photo}
                 alt={member.name}
                 loading="lazy"
                 decoding="async"
-                className="size-full object-cover object-top"
+                className="size-full object-cover object-center"
               />
             </div>
             <div className="space-y-1.5">
@@ -85,7 +86,13 @@ function ProfileModal({
               <p className="font-sans text-sm font-semibold text-primary">
                 {member.designation}
               </p>
-
+              {member.institutions && member.institutions.length > 0 && (
+                <div className="flex flex-wrap items-center justify-center gap-2 pt-1 sm:justify-start">
+                  {member.institutions.map((inst) => (
+                    <InstitutionLogo key={inst.shortName} code={inst.shortName} />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -149,6 +156,33 @@ function ProfileModal({
 
 
 
+          {/* University & Alma Mater Qualifications with Official Logos */}
+          {member.institutions && member.institutions.length > 0 && (
+            <div>
+              <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground mb-2.5">
+                <Building2 className="size-5 text-primary" />
+                Educational Institutions & Alma Mater
+              </h3>
+              <div className="flex flex-col gap-2.5">
+                {member.institutions.map((inst) => (
+                  <div
+                    key={inst.shortName}
+                    className="flex items-center justify-between rounded-xl bg-muted/40 border border-border/60 p-3 text-xs"
+                  >
+                    <div className="flex items-center gap-3">
+                      <InstitutionLogo code={inst.shortName} showLabel={false} size="lg" />
+                      <div>
+                        <p className="font-bold text-foreground text-xs sm:text-sm">{inst.fullName}</p>
+                        <p className="text-[11px] text-muted-foreground font-medium">Graduated Higher Education Institution & Alma Mater ({inst.shortName})</p>
+                      </div>
+                    </div>
+                    <InstitutionLogo code={inst.shortName} showLabel={true} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Close Modal CTA */}
           <div className="pt-2 flex justify-end">
             <button
@@ -175,7 +209,11 @@ function FacultyPage() {
         m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.designation.toLowerCase().includes(searchQuery.toLowerCase()) ||
         m.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        m.qualification.toLowerCase().includes(searchQuery.toLowerCase())
+        m.qualification.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        m.institutions.some((inst) =>
+          inst.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          inst.shortName.toLowerCase().includes(searchQuery.toLowerCase())
+        )
 
       const matchesDept =
         selectedDept === 'All Departments' ||
@@ -333,13 +371,13 @@ function FacultyPage() {
                   <div className="grid gap-6 p-6 sm:p-8 lg:grid-cols-12 lg:gap-8 lg:items-center">
                     {/* Principal Image */}
                     <div className="lg:col-span-4 flex justify-center">
-                      <div className="relative h-72 w-full max-w-xs overflow-hidden rounded-xl border border-border shadow-xs">
+                      <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-xl border border-border shadow-xs bg-muted/20">
                         <img
                           src={principal.photo}
                           alt={principal.name}
                           loading="eager"
                           decoding="async"
-                          className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
+                          className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
                         />
                       </div>
                     </div>
@@ -378,7 +416,13 @@ function FacultyPage() {
                       </div>
 
                       {/* Institutions + View Profile Button */}
-                      <div className="flex flex-wrap items-center justify-end gap-4 pt-3 border-t border-border/60">
+                      <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-border/60">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold text-muted-foreground">Alma Mater:</span>
+                          {principal.institutions.map((inst) => (
+                            <InstitutionLogo key={inst.shortName} code={inst.shortName} />
+                          ))}
+                        </div>
 
                         <div className="flex items-center gap-3">
                           <button
@@ -470,14 +514,14 @@ function FacultyCard({
   return (
     <div className="bg-card group border border-border/80 flex flex-col justify-between overflow-hidden rounded-xl shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
       <div>
-        {/* Photo header */}
-        <div className="relative h-64 w-full overflow-hidden bg-muted">
+        {/* Photo header: aspect-square ensures complete headshot fits frame without vertical crop */}
+        <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
           <img
             src={member.photo}
             alt={member.name}
             loading="lazy"
             decoding="async"
-            className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="size-full object-cover object-center transition-transform duration-500 group-hover:scale-103"
           />
           <span className="bg-card/90 backdrop-blur-xs text-primary absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold shadow-2xs">
             <Building2 className="size-3" />
@@ -500,7 +544,14 @@ function FacultyCard({
             {member.qualification}
           </p>
 
-
+          {/* Alma Mater Badges with University Logos */}
+          {member.institutions && member.institutions.length > 0 && (
+            <div className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
+              {member.institutions.map((inst) => (
+                <InstitutionLogo key={inst.shortName} code={inst.shortName} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

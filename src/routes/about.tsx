@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { Lightbulb, Users2, TrendingUp } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -49,8 +49,21 @@ export const Route = createFileRoute('/about')({
 
 function AboutPage() {
   return (
-    <div className="flex flex-col gap-16 py-14">
-      <section className="mx-auto max-w-4xl px-4 sm:px-6">
+    <div className="flex flex-col gap-12 pb-16">
+      {/* Full-width Breadcrumb Bar */}
+      <section className="bg-muted/40 border-border/80 border-b py-2.5">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <nav className="flex items-center gap-2 text-xs text-muted-foreground sm:text-sm">
+            <Link to="/" className="text-primary hover:underline font-medium">
+              Home
+            </Link>
+            <span className="opacity-40">/</span>
+            <span className="text-foreground font-semibold">About Us</span>
+          </nav>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 pt-4">
         <SectionHeading eyebrow="About Us" title="About the College" />
         <div className="text-foreground/85 mx-auto mt-6 max-w-3xl text-justify text-base leading-relaxed">
           <p>
