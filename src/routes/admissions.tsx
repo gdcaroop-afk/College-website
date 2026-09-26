@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
 import { Button } from '@/components/ui/button'
 import { site } from '@/data/site'
+import { programs } from '@/data/programs'
 import { applicationSteps, bachelorRequirements, intermediateRequirements } from '@/data/admissions'
 import classroomPhoto from '@/assets/studies.jpg'
 import campusPhoto from '@/assets/2.jpg'
@@ -14,6 +16,83 @@ export const Route = createFileRoute('/admissions')({
     meta: [{ title: `Admissions — ${site.name}` }],
   }),
 })
+
+function InquiryForm() {
+  const [values, setValues] = useState({ name: '', email: '', phone: '', program: '', message: '' })
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    const subject = `Admission Inquiry from ${values.name || 'Website Visitor'}`
+    const body = [
+      `Name: ${values.name}`,
+      `Email: ${values.email}`,
+      `Phone: ${values.phone}`,
+      `Program of Interest: ${values.program || 'Not specified'}`,
+      '',
+      values.message,
+    ].join('\n')
+    window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
+
+  const inputClass =
+    'h-10 w-full rounded-md border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring/50'
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <input
+          required
+          placeholder="Full Name*"
+          value={values.name}
+          onChange={(e) => setValues((v) => ({ ...v, name: e.target.value }))}
+          className={inputClass}
+        />
+        <input
+          required
+          type="email"
+          placeholder="Email Address*"
+          value={values.email}
+          onChange={(e) => setValues((v) => ({ ...v, email: e.target.value }))}
+          className={inputClass}
+        />
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <input
+          placeholder="Phone Number"
+          value={values.phone}
+          onChange={(e) => setValues((v) => ({ ...v, phone: e.target.value }))}
+          className={inputClass}
+        />
+        <select
+          value={values.program}
+          onChange={(e) => setValues((v) => ({ ...v, program: e.target.value }))}
+          className={inputClass}
+        >
+          <option value="">Program Interest</option>
+          {programs.map((p) => (
+            <option key={p.slug} value={p.title}>
+              {p.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <textarea
+        placeholder="Tell us about your interests and goals..."
+        rows={4}
+        value={values.message}
+        onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
+        className="border-input bg-background focus-visible:border-ring focus-visible:ring-ring/50 w-full resize-none rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-1"
+      />
+      <Button type="submit" className="w-fit">
+        Send Inquiry
+      </Button>
+      <p className="text-muted-foreground text-xs">
+        This opens your email app with the message addressed to the college — the
+        site itself doesn't store or send anything.
+      </p>
+    </form>
+  )
+}
 
 function AdmissionsPage() {
   return (
@@ -129,31 +208,25 @@ function AdmissionsPage() {
           <div>
             <h2 className="font-heading text-primary text-2xl font-bold">Connect with Admissions</h2>
             <p className="text-foreground/85 mt-3 text-base leading-relaxed text-pretty">
-              Have questions about applying? The college office can help directly —
-              reach out by phone, email, or in person.
+              Have questions about applying? Send us a message directly, or reach
+              out by phone, email, or in person.
             </p>
 
-            <div className="mt-6 flex flex-col gap-4">
-              <a
-                href={`tel:${site.contact.phones[0]?.number}`}
-                className="border-border bg-card flex items-center gap-3 rounded-lg border p-4 shadow-sm"
-              >
-                <Phone className="text-primary size-5 shrink-0" />
-                <span className="text-foreground/85 text-sm">{site.contact.phones[0]?.number}</span>
+            <InquiryForm />
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+              <a href={`tel:${site.contact.phones[0]?.number}`} className="text-primary flex items-center gap-1.5">
+                <Phone className="size-4" />
+                {site.contact.phones[0]?.number}
               </a>
-              <a
-                href={`mailto:${site.contact.email}`}
-                className="border-border bg-card flex items-center gap-3 rounded-lg border p-4 shadow-sm"
-              >
-                <Mail className="text-primary size-5 shrink-0" />
-                <span className="text-foreground/85 text-sm">{site.contact.email}</span>
+              <a href={`mailto:${site.contact.email}`} className="text-primary flex items-center gap-1.5">
+                <Mail className="size-4" />
+                {site.contact.email}
               </a>
-              <div className="border-border bg-card flex items-center gap-3 rounded-lg border p-4 shadow-sm">
-                <MapPin className="text-primary size-5 shrink-0" />
-                <span className="text-foreground/85 text-sm">
-                  {site.address.line1}, {site.address.line2}
-                </span>
-              </div>
+              <span className="text-muted-foreground flex items-center gap-1.5">
+                <MapPin className="size-4" />
+                {site.address.line1}, {site.address.line2}
+              </span>
             </div>
           </div>
 
