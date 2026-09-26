@@ -6,7 +6,6 @@ import { SectionHeading } from '@/components/shared/section-heading'
 import { Badge } from '@/components/ui/badge'
 import { EventCard } from '@/components/sections/event-card'
 import { events, type EventItem } from '@/data/events'
-import { newsItems } from '@/data/news'
 import { site } from '@/data/site'
 
 export const Route = createFileRoute('/news')({
@@ -125,37 +124,6 @@ function NewsPage() {
             onViewDetails={(item) => setSelectedEvent(item)}
           />
         ))}
-      </div>
-
-      {/* Featured News & Announcements */}
-      <div className="pt-8 border-t border-border/60">
-        <h3 className="font-heading text-foreground mb-6 text-center text-2xl font-bold">
-          Official Announcements & College Updates
-        </h3>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {newsItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-card border border-border/80 rounded-xl p-5 shadow-2xs space-y-2 hover:border-primary/50 transition-all"
-            >
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-primary font-semibold flex items-center gap-1">
-                  <CalendarDays className="size-3.5" />
-                  {item.date}
-                </span>
-                <span className="bg-secondary text-primary font-bold px-2.5 py-0.5 rounded text-[11px]">
-                  {item.category}
-                </span>
-              </div>
-              <h4 className="font-heading text-base font-bold text-foreground">
-                {item.title}
-              </h4>
-              <p className="text-xs text-muted-foreground leading-relaxed text-justify">
-                {item.summary}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Event Modal Popup */}
