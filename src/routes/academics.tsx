@@ -1,9 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { SectionHeading } from '@/components/shared/section-heading'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ProgramIcon } from '@/components/sections/program-icon'
+import { ProgramCard } from '@/components/sections/program-card'
 import { programs, programsPendingConfirmation } from '@/data/programs'
 import { site } from '@/data/site'
 
@@ -33,29 +31,7 @@ function AcademicsPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((program) => (
-            <Card key={program.title}>
-              <CardHeader>
-                <span className="bg-primary/10 text-primary mb-1 flex size-11 items-center justify-center rounded-full">
-                  <ProgramIcon title={program.title} className="size-5" />
-                </span>
-                <Badge variant="secondary" className="w-fit">
-                  {program.level}
-                </Badge>
-                <CardTitle>{program.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="text-muted-foreground flex flex-col gap-1.5 text-sm">
-                <span>
-                  <span className="text-foreground font-medium">Duration:</span>{' '}
-                  {program.duration}
-                </span>
-                {program.subjects ? (
-                  <span>
-                    <span className="text-foreground font-medium">Subjects:</span>{' '}
-                    {program.subjects.join(', ')}
-                  </span>
-                ) : null}
-              </CardContent>
-            </Card>
+            <ProgramCard key={program.title} program={program} />
           ))}
         </div>
       </section>
@@ -67,18 +43,7 @@ function AcademicsPage() {
           </h3>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {programsPendingConfirmation.map((program) => (
-              <Card key={program.title} className="border-dashed">
-                <CardHeader>
-                  <Badge variant="outline" className="w-fit">
-                    {program.level}
-                  </Badge>
-                  <CardTitle>{program.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-muted-foreground flex flex-col gap-1.5 text-sm">
-                  <span>Duration: {program.duration}</span>
-                  {program.note ? <span className="italic">{program.note}</span> : null}
-                </CardContent>
-              </Card>
+              <ProgramCard key={program.title} program={program} dashed />
             ))}
           </div>
         </section>

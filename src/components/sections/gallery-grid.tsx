@@ -17,12 +17,12 @@ function Tile({ image }: { image: GalleryImage }) {
   }
 
   return (
-    <figure className="border-border group relative aspect-4/3 w-full overflow-hidden rounded-lg border shadow-sm">
+    <figure className="group relative aspect-4/3 w-full overflow-hidden rounded-xl shadow-sm ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <img
         src={image.src}
         alt={image.alt}
         loading="lazy"
-        className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+        className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
       {image.caption ? (
         <figcaption className="from-black/70 absolute inset-x-0 bottom-0 bg-linear-to-t to-transparent px-3 py-2 text-xs font-medium text-white">
