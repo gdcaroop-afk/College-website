@@ -15,8 +15,8 @@ export function Hero() {
         className="absolute inset-0 size-full object-cover"
       />
       <div className="from-background via-background/85 to-background/40 absolute inset-0 bg-linear-to-t" />
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 py-10 text-center sm:px-6 sm:py-14">
-        <div className="flex flex-col gap-2.5">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6 sm:py-20">
+        <div className="flex flex-col gap-3">
           <span className="bg-primary text-primary-foreground mx-auto w-fit rounded-full px-4 py-1 text-sm font-semibold shadow-sm">
             {site.governance.department}
           </span>
