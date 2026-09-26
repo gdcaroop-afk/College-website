@@ -1,8 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Landmark, Target, Eye, Lightbulb, Users2, TrendingUp } from 'lucide-react'
+import { Target, Eye, Lightbulb, Users2, TrendingUp } from 'lucide-react'
 
 import { SectionHeading } from '@/components/shared/section-heading'
-import { AffiliationBanner } from '@/components/sections/affiliation-banner'
 import { GalleryGrid } from '@/components/sections/gallery-grid'
 import { site } from '@/data/site'
 import { principal } from '@/data/principal'
@@ -178,26 +177,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6">
-        <div className="border-border bg-card flex items-start gap-3 rounded-lg border p-6 shadow-sm">
-          <Landmark className="text-primary mt-1 size-6 shrink-0" />
-          <div className="text-muted-foreground text-sm">
-            <span className="text-foreground font-semibold">Governance: </span>
-            Operates under the {site.governance.department}.{' '}
-            <a
-              href={site.governance.hepUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="text-primary underline underline-offset-2"
-            >
-              View official HED Punjab listing
-            </a>
-            .
-          </div>
-        </div>
-      </section>
-
-      <AffiliationBanner />
     </div>
   )
 }
