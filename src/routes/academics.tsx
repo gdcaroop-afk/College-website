@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ProgramIcon } from '@/components/sections/program-icon'
 import { programs, programsPendingConfirmation } from '@/data/programs'
 import { site } from '@/data/site'
 
@@ -34,6 +35,9 @@ function AcademicsPage() {
           {programs.map((program) => (
             <Card key={program.title}>
               <CardHeader>
+                <span className="bg-primary/10 text-primary mb-1 flex size-11 items-center justify-center rounded-full">
+                  <ProgramIcon title={program.title} className="size-5" />
+                </span>
                 <Badge variant="secondary" className="w-fit">
                   {program.level}
                 </Badge>

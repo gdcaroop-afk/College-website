@@ -13,7 +13,7 @@ const navItems = [
   { to: '/academics', label: 'Academics' },
   { to: '/faculty', label: 'Faculty' },
   { to: '/gallery', label: 'Gallery' },
-  { to: '/news', label: 'News' },
+  { to: '/news', label: 'News & Events' },
   { to: '/contact', label: 'Contact' },
 ] as const
 

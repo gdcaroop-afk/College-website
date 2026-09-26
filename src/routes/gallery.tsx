@@ -20,7 +20,7 @@ function GalleryPage() {
         description="Authentic campus photography is being sourced from the college's official Facebook and Instagram pages and will replace these placeholders."
       />
       <div className="mt-10">
-        <GalleryGrid />
+        <GalleryGrid filterable />
       </div>
       <p className="text-muted-foreground mt-6 text-center text-sm">
         Follow the college on{' '}

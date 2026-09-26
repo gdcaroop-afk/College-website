@@ -15,7 +15,7 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 size-full object-cover"
       />
-      <div className="from-background via-background/90 to-background/70 absolute inset-0 bg-linear-to-t" />
+      <div className="from-background via-background/85 to-background/40 absolute inset-0 bg-linear-to-t" />
       <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6 sm:py-24">
         <LogoMark className="border-primary/20 size-24 border-2 bg-white shadow-md sm:size-28" />
         <div className="flex flex-col gap-4">
@@ -43,7 +43,7 @@ export function Hero() {
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link to="/about">About the College</Link>
+            <Link to="/gallery">Campus Gallery</Link>
           </Button>
         </div>
       </div>

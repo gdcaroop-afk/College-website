@@ -5,31 +5,42 @@ import { SectionHeading } from '@/components/shared/section-heading'
 import { EmptyState } from '@/components/shared/empty-state'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { EventCard } from '@/components/sections/event-card'
+import { events } from '@/data/events'
 import { news } from '@/data/news'
 import { site } from '@/data/site'
 
 export const Route = createFileRoute('/news')({
   component: NewsPage,
   head: () => ({
-    meta: [{ title: `News & Announcements — ${site.name}` }],
+    meta: [{ title: `News & Events — ${site.name}` }],
   }),
 })
 
 function NewsPage() {
   return (
-    <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6">
+    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
       <SectionHeading
-        eyebrow="Stay Informed"
-        title="News & Announcements"
-        description="Official announcements, events and achievements will be posted here."
+        eyebrow="Campus Life"
+        title="News & Events"
+        description="A record of recent ceremonies, seminars and activities at the college, illustrated with real photos from campus."
       />
 
-      <div className="mt-10">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {events.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
+      </div>
+
+      <div className="mt-16">
+        <h3 className="font-heading text-foreground mb-6 text-center text-xl font-semibold">
+          Announcements
+        </h3>
         {news.length === 0 ? (
           <EmptyState
             icon={Megaphone}
-            title="No announcements yet"
-            description="Check back soon, or follow the college's official Facebook page for the latest updates in the meantime."
+            title="No written announcements yet"
+            description="Formal announcements (admission dates, exam schedules, etc.) will be posted here once confirmed by the college office."
           />
         ) : (
           <div className="flex flex-col gap-4">
