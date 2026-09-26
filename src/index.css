@@ -178,4 +178,24 @@
     );
     background-size: 22px 22px;
   }
+
+  /* Smooth scrolling ticker marquee */
+  .animate-marquee-scroll {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 32s linear infinite;
+  }
+
+  .animate-marquee-scroll:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

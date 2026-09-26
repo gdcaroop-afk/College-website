@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/shared/section-heading'
 import { GalleryGrid } from '@/components/sections/gallery-grid'
 import { site } from '@/data/site'
 import { principal } from '@/data/principal'
-import principalPhoto from '@/assets/principal-photo.png'
+import principalPhoto from '@/assets/Principle Khurram Shezad.png'
 import campusFacilitiesPhoto from '@/assets/3.jpg'
 
 const coreValues = [

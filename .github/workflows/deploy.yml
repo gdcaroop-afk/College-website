@@ -1,0 +1,29 @@
+name: CI/CD Pipeline & Vercel Build Verification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify-and-build:
+    name: Typecheck & Build Production Bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Bun Environment
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Verify TypeScript Types
+        run: bun run tsc --noEmit
+
+      - name: Build Web Application Bundle
+        run: bun run build

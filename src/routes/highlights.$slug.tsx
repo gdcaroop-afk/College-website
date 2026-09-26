@@ -21,14 +21,19 @@ function HighlightDetailPage() {
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-      <Link to="/" className="text-primary mb-8 inline-flex items-center gap-1.5 text-sm font-medium">
-        <ArrowLeft className="size-4" />
-        Back to Home
-      </Link>
+      <div className="mb-6 flex flex-wrap items-center gap-3">
+        <Link
+          to="/"
+          className="bg-background border border-border text-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground shadow-2xs px-3.5 py-1.5 rounded-full inline-flex items-center gap-2 text-xs font-semibold transition-all duration-200"
+        >
+          <ArrowLeft className="size-3.5" />
+          <span>Back to Home</span>
+        </Link>
+        <span className="bg-accent/20 text-accent-foreground px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+          Institutional Overview
+        </span>
+      </div>
 
-      <span className="text-accent-foreground bg-accent/20 w-fit rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase">
-        Institutional Overview
-      </span>
       <h1 className="font-heading text-primary mt-3 text-3xl font-bold text-balance sm:text-4xl">
         {item.title}
       </h1>

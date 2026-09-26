@@ -17,7 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FacultyRouteImport } from './routes/faculty'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as NewsRouteImport } from './routes/news'
-import { Route as AcademicsSlugRouteImport } from './routes/academics.$slug'
+import { Route as AcademicsSlugRouteImport } from './routes/academics_.$slug'
 import { Route as HighlightsSlugRouteImport } from './routes/highlights.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -61,9 +61,9 @@ const NewsRoute = NewsRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AcademicsSlugRoute = AcademicsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => AcademicsRoute,
+  id: '/academics_/$slug',
+  path: '/academics/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const HighlightsSlugRoute = HighlightsSlugRouteImport.update({
   id: '/highlights/$slug',
@@ -74,7 +74,7 @@ const HighlightsSlugRoute = HighlightsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academics': typeof AcademicsRouteWithChildren
+  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/contact': typeof ContactRoute
   '/faculty': typeof FacultyRoute
@@ -86,7 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academics': typeof AcademicsRouteWithChildren
+  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/contact': typeof ContactRoute
   '/faculty': typeof FacultyRoute
@@ -99,13 +99,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/academics': typeof AcademicsRouteWithChildren
+  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/contact': typeof ContactRoute
   '/faculty': typeof FacultyRoute
   '/gallery': typeof GalleryRoute
   '/news': typeof NewsRoute
-  '/academics/$slug': typeof AcademicsSlugRoute
+  '/academics_/$slug': typeof AcademicsSlugRoute
   '/highlights/$slug': typeof HighlightsSlugRoute
 }
 export interface FileRouteTypes {
@@ -143,19 +143,20 @@ export interface FileRouteTypes {
     | '/faculty'
     | '/gallery'
     | '/news'
-    | '/academics/$slug'
+    | '/academics_/$slug'
     | '/highlights/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AcademicsRoute: typeof AcademicsRouteWithChildren
+  AcademicsRoute: typeof AcademicsRoute
   AdmissionsRoute: typeof AdmissionsRoute
   ContactRoute: typeof ContactRoute
   FacultyRoute: typeof FacultyRoute
   GalleryRoute: typeof GalleryRoute
   NewsRoute: typeof NewsRoute
+  AcademicsSlugRoute: typeof AcademicsSlugRoute
   HighlightsSlugRoute: typeof HighlightsSlugRoute
 }
 
@@ -217,12 +218,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/academics/$slug': {
-      id: '/academics/$slug'
-      path: '/$slug'
+    '/academics_/$slug': {
+      id: '/academics_/$slug'
+      path: '/academics/$slug'
       fullPath: '/academics/$slug'
       preLoaderRoute: typeof AcademicsSlugRouteImport
-      parentRoute: typeof AcademicsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/highlights/$slug': {
       id: '/highlights/$slug'
@@ -234,27 +235,16 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AcademicsRouteChildren {
-  AcademicsSlugRoute: typeof AcademicsSlugRoute
-}
-
-const AcademicsRouteChildren: AcademicsRouteChildren = {
-  AcademicsSlugRoute: AcademicsSlugRoute,
-}
-
-const AcademicsRouteWithChildren = AcademicsRoute._addFileChildren(
-  AcademicsRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AcademicsRoute: AcademicsRouteWithChildren,
+  AcademicsRoute: AcademicsRoute,
   AdmissionsRoute: AdmissionsRoute,
   ContactRoute: ContactRoute,
   FacultyRoute: FacultyRoute,
   GalleryRoute: GalleryRoute,
   NewsRoute: NewsRoute,
+  AcademicsSlugRoute: AcademicsSlugRoute,
   HighlightsSlugRoute: HighlightsSlugRoute,
 }
 export const routeTree = rootRouteImport
