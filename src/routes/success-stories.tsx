@@ -197,7 +197,7 @@ function StoryCard({ story, onReadMore }: { story: SuccessStory; onReadMore: () 
   return (
     <div className="bg-card group border border-border/80 flex flex-col justify-between overflow-hidden rounded-xl shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
       <div>
-        <div className="relative aspect-4/3 w-full overflow-hidden bg-muted/20">
+        <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
           <img
             src={story.photo}
             alt={story.name}

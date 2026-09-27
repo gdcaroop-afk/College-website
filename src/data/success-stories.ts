@@ -25,7 +25,6 @@ export const successStories: SuccessStory[] = [
     type: 'individual',
     name: 'Shanza Saif',
     photo: shanzaPhoto,
-    isPhotoPlaceholder: true,
     batch: 'Batch 2022 – 2026',
     headline: 'Selected in Punjab Excise, Taxation & Narcotics Control Department (BS-07)',
     organization: {
@@ -45,7 +44,6 @@ export const successStories: SuccessStory[] = [
     type: 'individual',
     name: 'Muhammad Ahmad',
     photo: ahmadPhoto,
-    isPhotoPlaceholder: true,
     batch: 'Batch 2023 – 2027',
     headline: 'Selected as Constable in Punjab Police (BS-07)',
     organization: {
