@@ -142,7 +142,7 @@ function GraduatesBatchCard({
           alt={`${info.program} Batch 2022-2026 Graduation Convocation`}
           className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-90" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-90" />
         <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
           <span className="font-bold tracking-wide drop-shadow-md">
             Convocation 2024 — {info.program}
@@ -216,7 +216,7 @@ function AlumniPage() {
               alt={`${site.name} Campus Building`}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-80" />
             <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs">
               <span className="font-bold tracking-wide drop-shadow-sm">{site.name}</span>
               <span className="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded text-[11px] font-medium border border-white/20">

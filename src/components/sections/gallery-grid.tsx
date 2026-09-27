@@ -46,7 +46,7 @@ function Tile({
         </span>
       </div>
       {image.caption ? (
-        <figcaption className="from-black/85 via-black/40 absolute inset-x-0 bottom-0 bg-gradient-to-t to-transparent px-3 py-2 text-xs font-semibold text-white">
+        <figcaption className="from-black/85 via-black/40 absolute inset-x-0 bottom-0 bg-linear-to-t to-transparent px-3 py-2 text-xs font-semibold text-white">
           {image.caption}
         </figcaption>
       ) : null}

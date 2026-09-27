@@ -48,7 +48,7 @@ function ContactPage() {
   return (
     <div className="flex flex-col gap-10 pb-16 pt-4">
       {/* 🌟 1. Compact Hero Header */}
-      <section className="bg-gradient-to-b from-primary/10 via-secondary/40 to-background border-b border-border/60 py-8 text-center">
+      <section className="bg-linear-to-b from-primary/10 via-secondary/40 to-background border-b border-border/60 py-8 text-center">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <div className="mb-2 flex justify-center">
             <span className="bg-primary/15 text-primary border-primary/20 flex items-center gap-1.5 rounded-full border px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider">

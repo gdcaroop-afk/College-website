@@ -47,7 +47,7 @@ function StoryModal({ story, onClose }: { story: SuccessStory; onClose: () => vo
         </button>
 
         {/* Header Banner */}
-        <div className="bg-gradient-to-r from-primary/15 via-secondary to-accent/15 border-b border-border/60 p-6 sm:p-8">
+        <div className="bg-linear-to-r from-primary/15 via-secondary to-accent/15 border-b border-border/60 p-6 sm:p-8">
           <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
             <div
               className={`relative size-28 shrink-0 overflow-hidden border-2 border-primary/30 shadow-md sm:size-32 bg-muted/20 ${
@@ -160,7 +160,7 @@ function StoryCard({ story, onReadMore }: { story: SuccessStory; onReadMore: () 
   return (
     <div className="bg-card group border border-border/80 flex flex-col justify-between overflow-hidden rounded-xl shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
       <div>
-        <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
+        <div className="relative aspect-4/3 w-full overflow-hidden bg-muted/20">
           <img
             src={story.photo}
             alt={story.name}
@@ -170,24 +170,24 @@ function StoryCard({ story, onReadMore }: { story: SuccessStory; onReadMore: () 
               story.type === 'company' ? 'object-cover object-top' : 'object-cover object-center'
             }`}
           />
-          <span className="bg-card/90 backdrop-blur-xs text-primary absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold shadow-2xs">
+          <span className="bg-card/90 backdrop-blur-xs text-primary absolute top-2 left-2 flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold shadow-2xs">
             <GraduationCap className="size-3" />
             {story.batch}
           </span>
           {story.isPhotoPlaceholder && (
-            <span className="bg-amber-500/90 text-white absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold shadow-2xs">
+            <span className="bg-amber-500/90 text-white absolute top-2 right-2 rounded-full px-2 py-0.5 text-[9px] font-bold shadow-2xs">
               Photo Coming Soon
             </span>
           )}
         </div>
 
-        <div className="flex flex-col items-center text-center gap-2 p-5">
-          <h3 className="font-heading text-foreground group-hover:text-primary text-base font-bold transition-colors text-center">
+        <div className="flex flex-col items-center text-center gap-1.5 p-4">
+          <h3 className="font-heading text-foreground group-hover:text-primary text-sm font-bold transition-colors text-center">
             {story.name}
           </h3>
-          <p className="text-primary text-xs font-semibold leading-snug text-center">{story.headline}</p>
+          <p className="text-primary text-[11px] font-semibold leading-snug text-center">{story.headline}</p>
 
-          <div className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1.5">
             <InstitutionLogo code={story.organization.code} />
             {story.secondaryOrganization && (
               <InstitutionLogo code={story.secondaryOrganization.code} />
@@ -196,7 +196,7 @@ function StoryCard({ story, onReadMore }: { story: SuccessStory; onReadMore: () 
         </div>
       </div>
 
-      <div className="p-5 pt-0 mt-2">
+      <div className="p-4 pt-0 mt-1">
         <button
           onClick={onReadMore}
           className="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground w-full rounded-lg py-2 text-xs font-bold transition-all duration-200"
@@ -245,7 +245,7 @@ function SuccessStoriesPage() {
 
       {/* Story Cards Grid */}
       <section className="mx-auto w-full max-w-7xl px-4 sm:px-6">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {successStories.map((story) => (
             <StoryCard key={story.id} story={story} onReadMore={() => setActiveStory(story)} />
           ))}

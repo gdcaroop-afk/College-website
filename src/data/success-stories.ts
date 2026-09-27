@@ -1,5 +1,5 @@
 import shanzaPhoto from '@/assets/ShanzaSaif-placeholder.png'
-import ahmadPhoto from '@/assets/MuhammadAhmad-placeholder.jpg'
+import ahmadPhoto from '@/assets/MuhammadAhmad-placeholder.png'
 import nafeelPhoto from '@/assets/NafeelAqqib.png'
 import nineTTeamPhoto from '@/assets/9t-solution-team.jpg'
 

@@ -60,7 +60,7 @@ function ProfileModal({
         </button>
 
         {/* Modal Header / Banner */}
-        <div className="bg-gradient-to-r from-primary/15 via-secondary to-accent/15 border-b border-border/60 p-6 sm:p-8">
+        <div className="bg-linear-to-r from-primary/15 via-secondary to-accent/15 border-b border-border/60 p-6 sm:p-8">
           <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
             <div className="relative size-28 shrink-0 overflow-hidden rounded-2xl border-2 border-primary/30 shadow-md sm:size-32 bg-muted/20">
               <img
@@ -255,7 +255,7 @@ function FacultyPage() {
           <p className="font-sans text-primary font-bold text-base sm:text-lg mt-1 tracking-wide">
             Inspiring Minds. Building Futures.
           </p>
-          <p className="text-muted-foreground mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed sm:text-sm text-justify sm:text-center">
+          <p className="text-muted-foreground mx-auto mt-3 max-w-3xl text-center text-xs leading-relaxed sm:text-sm">
             At {site.name}, we believe that quality education begins with dedicated, knowledgeable, and experienced faculty. Our academic team brings together highly qualified educators and professionals who are committed to creating an engaging learning environment across Physics, English, Biology, Education, Commerce, Statistics, and Information Management.
           </p>
         </div>

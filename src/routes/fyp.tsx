@@ -60,7 +60,7 @@ function ProjectDetailModal({
         </button>
 
         {/* Header Banner */}
-        <div className="bg-gradient-to-br from-primary/15 via-secondary to-accent/10 border-b border-border/60 p-5 sm:p-6">
+        <div className="bg-linear-to-br from-primary/15 via-secondary to-accent/10 border-b border-border/60 p-5 sm:p-6">
           <div className="flex items-center gap-2 mb-2">
             <span className="bg-primary text-primary-foreground rounded-md px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase">
               Group {project.group}
@@ -109,7 +109,7 @@ function ProjectDetailModal({
               <img
                 src={project.image}
                 alt={`${project.title} Interface Preview`}
-                className="w-full h-auto object-cover max-h-[340px] hover:scale-[1.01] transition-transform duration-300"
+                className="w-full h-auto object-cover max-h-85 hover:scale-[1.01] transition-transform duration-300"
               />
             </div>
           )}
@@ -271,8 +271,8 @@ function FYPCard({
       <div
         className={`relative p-3.5 sm:p-4 ${
           isPlaceholder
-            ? 'bg-gradient-to-br from-muted/60 to-muted/20'
-            : 'bg-gradient-to-br from-primary/10 via-secondary/60 to-accent/10'
+            ? 'bg-linear-to-br from-muted/60 to-muted/20'
+            : 'bg-linear-to-br from-primary/10 via-secondary/60 to-accent/10'
         }`}
       >
         <div className="flex items-start justify-between gap-1.5 mb-1.5">
