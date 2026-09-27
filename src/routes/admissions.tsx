@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { site } from '@/data/site'
 import { programs } from '@/data/programs'
 import { applicationSteps, bachelorRequirements, intermediateRequirements } from '@/data/admissions'
-import classroomPhoto from '@/assets/studies.jpg'
 import campusPhoto from '@/assets/2.jpg'
 
 export const Route = createFileRoute('/admissions')({
@@ -106,29 +105,6 @@ function AdmissionsPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid items-center gap-10 sm:grid-cols-2">
-          <div>
-            <h2 className="font-heading text-primary text-3xl font-bold text-balance sm:text-4xl">
-              Begin Your Academic Journey
-            </h2>
-            <p className="text-foreground/85 mt-4 text-base leading-relaxed text-pretty">
-              Discover a supportive academic environment where discipline meets
-              opportunity. Our admissions process is designed to welcome students
-              from Aroop and the surrounding Gujranwala area into a structured,
-              affordable path through Intermediate and BS-level education.
-            </p>
-          </div>
-          <img
-            src={classroomPhoto}
-            alt="A classroom lecture in progress"
-            loading="lazy"
-            decoding="async"
-            className="aspect-4/3 w-full rounded-xl object-cover shadow-sm"
-          />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading title="Application Process" description="How admission is generally handled at the college." />
         <div className="mt-12 grid gap-8 sm:grid-cols-4">
           {applicationSteps.map((item, i) => (
@@ -180,53 +156,87 @@ function AdmissionsPage() {
 
           <div>
             <h2 className="font-heading text-primary text-2xl font-bold">Fee Structure</h2>
+
+            {/* Intermediate Fee */}
             <div className="border-border bg-card mt-6 overflow-hidden rounded-lg border shadow-sm">
               <div className="bg-muted/60 px-5 py-3">
                 <span className="text-foreground text-sm font-semibold">Intermediate Programs</span>
                 <span className="text-muted-foreground block text-xs">Per academic year</span>
               </div>
-              <div className="flex items-center justify-between px-5 py-4">
-                <span className="text-foreground/85 text-sm">College fee</span>
-                <span className="text-primary font-heading text-lg font-bold">≈ Rs. 2,000</span>
+              <div className="divide-border divide-y">
+                <div className="flex items-center justify-between px-5 py-3">
+                  <span className="text-foreground/85 text-sm">College fee</span>
+                  <span className="text-primary font-heading text-base font-bold">Rs. 2,000 – 3,000</span>
+                </div>
+                <div className="flex items-center justify-between px-5 py-3">
+                  <span className="text-foreground/85 text-sm">Board fee</span>
+                  <span className="text-muted-foreground text-sm">Separate (per board schedule)</span>
+                </div>
               </div>
             </div>
-            <div className="border-border bg-card mt-4 overflow-hidden rounded-lg border border-dashed shadow-sm">
+
+            {/* BS Fee */}
+            <div className="border-border bg-card mt-4 overflow-hidden rounded-lg border shadow-sm">
               <div className="bg-muted/60 px-5 py-3">
                 <span className="text-foreground text-sm font-semibold">Bachelor's (BS) Programs</span>
                 <span className="text-muted-foreground block text-xs">Per academic year</span>
               </div>
-              <div className="px-5 py-4">
-                <span className="text-muted-foreground text-sm italic">
-                  To be confirmed with the college office.
-                </span>
+              <div className="divide-border divide-y">
+                <div className="flex items-center justify-between px-5 py-3">
+                  <span className="text-foreground/85 text-sm">College fee</span>
+                  <span className="text-primary font-heading text-base font-bold">Rs. 3,000 – 4,000</span>
+                </div>
+                <div className="flex items-center justify-between px-5 py-3">
+                  <span className="text-foreground/85 text-sm">University fee</span>
+                  <span className="text-muted-foreground text-sm">Separate (per UOG schedule)</span>
+                </div>
               </div>
+            </div>
+
+            {/* DIT Fee */}
+            <div className="border-border bg-card mt-4 overflow-hidden rounded-lg border shadow-sm">
+              <div className="bg-muted/60 px-5 py-3">
+                <span className="text-foreground text-sm font-semibold">DIT (2-Year Diploma)</span>
+                <span className="text-muted-foreground block text-xs">Per semester</span>
+              </div>
+              <div className="divide-border divide-y">
+                <div className="flex items-center justify-between px-5 py-3">
+                  <span className="text-foreground/85 text-sm">Fee structure</span>
+                  <span className="text-muted-foreground text-sm">As determined by PBTE</span>
+                </div>
+              </div>
+              <p className="text-muted-foreground px-5 pb-3 text-xs">
+                The Diploma in Information Technology fee structure is set by the
+                Punjab Board of Technical Education (PBTE), not the college — confirm
+                the current schedule at the college office.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid gap-12 sm:grid-cols-2">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <h2 className="font-heading text-primary text-2xl font-bold">Connect with Admissions</h2>
-            <p className="text-foreground/85 mt-3 text-base leading-relaxed text-pretty">
+            <h2 className="font-heading text-primary text-xl font-bold">Connect with Admissions</h2>
+            <p className="text-foreground/85 mt-2 text-sm leading-relaxed">
               Have questions about applying? Send us a message directly, or reach
               out by phone, email, or in person.
             </p>
 
             <InquiryForm />
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
               <a href={`tel:${site.contact.phones[0]?.number}`} className="text-primary flex items-center gap-1.5">
-                <Phone className="size-4" />
+                <Phone className="size-3.5" />
                 {site.contact.phones[0]?.number}
               </a>
               <a href={`mailto:${site.contact.email}`} className="text-primary flex items-center gap-1.5">
-                <Mail className="size-4" />
+                <Mail className="size-3.5" />
                 {site.contact.email}
               </a>
               <span className="text-muted-foreground flex items-center gap-1.5">
-                <MapPin className="size-4" />
+                <MapPin className="size-3.5" />
                 {site.address.line1}, {site.address.line2}
               </span>
             </div>
@@ -240,7 +250,7 @@ function AdmissionsPage() {
               decoding="async"
               className="aspect-video w-full rounded-xl object-cover shadow-sm"
             />
-            <h3 className="font-heading text-foreground mt-4 text-lg font-semibold">Visit the Campus</h3>
+            <h3 className="font-heading text-foreground mt-3 text-base font-semibold">Visit the Campus</h3>
             <p className="text-muted-foreground mt-1 text-sm">
               Prospective students are welcome to visit the college office in person
               during working hours — contact us beforehand to confirm timing.

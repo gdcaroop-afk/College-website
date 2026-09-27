@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
 import { Menu, Phone, X, Volume2 } from 'lucide-react'
-import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
+import { IconBrandFacebook, IconBrandInstagram, IconBrandWhatsapp } from '@tabler/icons-react'
 
 import { LogoMark } from '@/components/shared/logo-mark'
 import { Button } from '@/components/ui/button'
@@ -14,6 +14,8 @@ const mainNavItems = [
   { to: '/admissions', label: 'Admissions' },
   { to: '/academics', label: 'Academics' },
   { to: '/faculty', label: 'Faculty & Staff' },
+  { to: '/fyp', label: 'FYP' },
+  { to: '/alumni', label: 'Alumni' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/news', label: 'News & Events' },
   { to: '/contact', label: 'Contact' },
@@ -21,17 +23,18 @@ const mainNavItems = [
 
 const tickerAnnouncements = [
   '📢 Admissions Open for BS CS, BS English, BS Chemistry, BS Commerce & Intermediate (F.Sc, ICS, F.A, I.Com, DIT)',
-  '⏰ College Shift Timings: Intermediate (08:00 AM - 01:30 PM) | BS Programs (08:30 AM - 12:40 PM)',
+  '⏰ Intermediate Shift Timings (Part 1 & 2): 08:30 AM - 01:45 PM | Friday: 08:30 AM - 12:00 PM',
+  '⏰ BS Programs Timetable: 08:30 AM - 12:15 PM | Friday: 08:30 AM - 11:00 AM',
+  '🎓 Farewell Party for Graduating Batch 2022-2026 to be Announced Soon',
+  '🎉 Welcome Party for New Incoming Batch to be Announced Soon',
   '📞 Principal Office: 05534940001 | Admission Office: 055-34940002 | Email: gdc.aroop@gmail.com',
-  '🎓 Welcome Orientation Ceremony Scheduled for New BS & Intermediate Batches',
-  '🏆 Annual Sports Day & Academic Merit Awards Celebrations',
 ]
 
 export function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="bg-background/95 border-border sticky top-0 z-50 border-b backdrop-blur">
+    <header className="bg-background border-border sticky top-0 z-50 border-b">
       {/* Top Green Bar — Contact Info, Social & Sliding News Ticker */}
       <div className="bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 text-xs sm:px-6">
@@ -90,6 +93,15 @@ export function Header() {
               className="hover:text-accent"
             >
               <IconBrandInstagram className="size-3.5" />
+            </a>
+            <a
+              href={site.social.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp Community"
+              className="hover:text-accent"
+            >
+              <IconBrandWhatsapp className="size-3.5" />
             </a>
           </div>
         </div>

@@ -20,6 +20,7 @@ export const site = {
     lng: 74.1787374,
     mapsUrl: 'https://maps.app.goo.gl/uqVRvKGKCmCPTBPm6',
   },
+  cimsCode: '341128',
   contact: {
     // Two different phone numbers appear across official public records —
     // shown here with their source so the college can confirm the correct
@@ -33,6 +34,7 @@ export const site = {
   social: {
     facebook: 'https://www.facebook.com/ggc.aroop',
     instagram: 'https://www.instagram.com/ggc.aroop/',
+    whatsapp: 'https://chat.whatsapp.com/JObxB2ZqCoXF7m7vzhAZ50',
   },
   affiliation: {
     university: 'University of Gujrat (UOG)',

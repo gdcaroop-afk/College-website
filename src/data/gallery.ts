@@ -46,11 +46,11 @@ export type GalleryImage = {
 }
 
 export const gallery: GalleryImage[] = [
-  // 🎓 1. Graduates & Alumni Section
-  { id: 'grad-1', src: welcomeStudents, alt: 'Graduating BS & Intermediate Students Class', caption: 'BS & Intermediate Graduating Class', category: 'Graduates & Alumni' },
-  { id: 'grad-2', src: facultyGathering, alt: 'Graduating Scholars & Faculty Commemoration', caption: 'Graduation & Honor Roll Ceremony', category: 'Graduates & Alumni' },
-  { id: 'grad-3', src: orientation, alt: 'Convocation & Degree Distribution', caption: 'Degree Award & Academic Convocation', category: 'Graduates & Alumni' },
-  { id: 'grad-4', src: graduatePic, alt: 'Graduate Group & Alumni Network', caption: 'Graduates & Academic Achievers', category: 'Graduates & Alumni' },
+  // 🎓 1. Campus Events & Celebrations
+  { id: 'grad-1', src: welcomeStudents, alt: 'Welcome New Students Ceremony', caption: 'Welcome New Students', category: 'Campus & Academics' },
+  { id: 'grad-2', src: facultyGathering, alt: 'Welcome New Teachers & Faculty Members', caption: 'Welcome New Teachers & Faculty Members', category: 'Campus & Academics' },
+  { id: 'grad-3', src: orientation, alt: 'Iqbal Day Commemoration Event', caption: 'Iqbal Day Event', category: 'Seminars & Workshops' },
+  { id: 'grad-4', src: graduatePic, alt: 'Guest Speakers Motivational Speech Session', caption: 'Motivational Speech Session', category: 'Seminars & Workshops' },
 
   // 🎨 2. Color Day Festival Section
   { id: 'color-1', src: colorDay1, alt: 'College Color Day Cultural Festival & Celebration', caption: 'Color Day Cultural Celebration', category: 'Color Day Festival' },

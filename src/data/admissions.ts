@@ -7,23 +7,23 @@
 export const applicationSteps = [
   {
     step: '01',
-    title: 'Submit Application',
-    description: 'Collect the admission form from the college office and submit it with the required documents.',
+    title: 'Collect Prospectus',
+    description: 'Visit the college office to collect the prospectus and learn about available programs, eligibility criteria, and important dates.',
   },
   {
     step: '02',
-    title: 'Document Verification',
-    description: 'The college office verifies your academic records and other submitted documents.',
+    title: 'Submit Admission Form',
+    description: 'Complete the admission form and submit it at the college office along with all required documents.',
   },
   {
     step: '03',
-    title: 'Merit List',
-    description: 'Admission is granted on merit; results are announced on the college notice board.',
+    title: 'Pay Fee',
+    description: 'Submit the admission fee at the college cashier or designated bank branch as instructed by the college.',
   },
   {
     step: '04',
-    title: 'Fee Submission & Enrollment',
-    description: 'Selected candidates submit the admission fee to confirm their enrollment.',
+    title: 'Confirm Enrollment',
+    description: 'Receive your enrollment confirmation from the college office and complete all formalities to start your academic journey.',
   },
 ] as const
 

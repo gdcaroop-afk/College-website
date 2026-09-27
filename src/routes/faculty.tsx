@@ -118,7 +118,11 @@ function ProfileModal({
             </h3>
             <p className="mt-1.5 flex items-center gap-2 text-sm text-muted-foreground font-medium rounded-lg bg-muted/40 border border-border/60 p-3">
               <span className="font-bold text-foreground">Email:</span>
-              <span className="italic">Not provided yet</span>
+              {member.email ? (
+                <a href={`mailto:${member.email}`} className="italic text-primary hover:underline">{member.email}</a>
+              ) : (
+                <span className="italic">Not provided yet</span>
+              )}
             </p>
           </div>
 
@@ -530,6 +534,11 @@ function FacultyCard({
           <span className="bg-primary/90 text-primary-foreground absolute bottom-2.5 right-2.5 flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold shadow-2xs">
             {member.experience} Exp.
           </span>
+          {member.isPhotoPlaceholder && (
+            <span className="bg-amber-500/90 text-white absolute top-2.5 right-2.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold shadow-2xs">
+              Photo Coming Soon
+            </span>
+          )}
         </div>
 
         {/* Content body */}

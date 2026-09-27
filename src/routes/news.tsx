@@ -113,7 +113,7 @@ function NewsPage() {
       <SectionHeading
         eyebrow="Campus Life"
         title="News & Events"
-        description="A record of recent ceremonies, sports galas, awareness seminars and academic activities at the college, illustrated with real campus photographs."
+        description="Latest news about events and college announcements are published here."
       />
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -7,7 +7,6 @@ import thalassemiaCamp from '@/assets/thelsemia_camp_sunds_foundation.jpg'
 import voiceOfPunjab from '@/assets/voice_of_punjab.jpg'
 import orientation from '@/assets/welcome_orientation.jpg'
 import ramzanSeminar from '@/assets/ramzan_kareem_seminar.jpg'
-import ptmNotice from '@/assets/ptm.jpg'
 
 export type EventItem = {
   id: string
@@ -21,19 +20,20 @@ export type EventItem = {
   image: string
 }
 
+// Events sorted date-wise with the most close/recent date at the top
 export const events: EventItem[] = [
   {
-    id: 'independence-day',
-    title: 'Independence Day Flag-Hoisting Ceremony',
-    date: 'August 14, 2024',
-    time: '08:30 AM – 11:30 AM',
-    venue: 'College Main Entrance Lawn',
-    category: 'Ceremony',
+    id: 'plantation-day',
+    title: 'Plantation Day — Clean & Green Pakistan Campaign',
+    date: 'March 15, 2025',
+    time: '10:00 AM – 01:00 PM',
+    venue: 'Campus Precincts & Gardens',
+    category: 'Awareness',
     summary:
-      'Faculty and students gathered for the flag-hoisting ceremony at the college entrance to mark Pakistan’s Independence Day.',
+      'Students and faculty planted saplings on campus as part of a "Clean & Green Pakistan" awareness drive.',
     description:
-      'The 78th Independence Day of Pakistan was celebrated with patriotic fervor at Govt. Graduate College Aroop. Principal, faculty members, and students participated in the flag hoisting ceremony followed by national songs, declamation speeches, and tree plantation on campus grounds.',
-    image: independenceDay,
+      'To promote environmental conservation and campus greening, the faculty and student green club planted over 150 indigenous tree saplings across the college grounds and surrounding garden pathways.',
+    image: plantationDay,
   },
   {
     id: 'sports-day',
@@ -47,19 +47,6 @@ export const events: EventItem[] = [
     description:
       'Students across intermediate and undergraduate programs competed in cricket, football, badminton, relay races, and tug-of-war. Medals and trophies were awarded to top performers during the closing award distribution ceremony.',
     image: sportsDay,
-  },
-  {
-    id: 'plantation-day',
-    title: 'Plantation Day — Clean & Green Pakistan Campaign',
-    date: 'March 15, 2025',
-    time: '10:00 AM – 01:00 PM',
-    venue: 'Campus Precincts & Gardens',
-    category: 'Awareness',
-    summary:
-      'Students and faculty planted saplings on campus as part of a "Clean & Green Pakistan" awareness drive.',
-    description:
-      'To promote environmental conservation and campus greening, the faculty and student green club planted over 150 indigenous tree saplings across the college grounds and surrounding garden pathways.',
-    image: plantationDay,
   },
   {
     id: 'thalassemia-camp',
@@ -88,6 +75,31 @@ export const events: EventItem[] = [
     image: dengueSeminar,
   },
   {
+    id: 'orientation',
+    title: 'Welcome & Orientation for First Year Students',
+    date: 'September 10, 2024',
+    time: '09:00 AM – 12:00 PM',
+    venue: 'Auditorium',
+    category: 'Academic',
+    summary: 'An orientation session welcoming newly admitted first-year students to the college.',
+    description:
+      'Principal and department heads welcomed the new intake of BS and Intermediate students, introducing college policies, academic curricula, library usage, and campus facilities.',
+    image: orientation,
+  },
+  {
+    id: 'independence-day',
+    title: 'Independence Day Flag-Hoisting Ceremony',
+    date: 'August 14, 2024',
+    time: '08:30 AM – 11:30 AM',
+    venue: 'College Main Entrance Lawn',
+    category: 'Ceremony',
+    summary:
+      'Faculty and students gathered for the flag-hoisting ceremony at the college entrance to mark Pakistan’s Independence Day.',
+    description:
+      'The 78th Independence Day of Pakistan was celebrated with patriotic fervor at Govt. Graduate College Aroop. Principal, faculty members, and students participated in the flag hoisting ceremony followed by national songs, declamation speeches, and tree plantation on campus grounds.',
+    image: independenceDay,
+  },
+  {
     id: 'voice-of-punjab',
     title: 'Voice of Punjab Cultural & Literary Declamation',
     date: 'May 10, 2024',
@@ -99,18 +111,6 @@ export const events: EventItem[] = [
     description:
       'Students demonstrated public speaking and poetic expression during the regional declamation contest celebrating cultural heritage, literature, and youth leadership.',
     image: voiceOfPunjab,
-  },
-  {
-    id: 'orientation',
-    title: 'Welcome & Orientation for First Year Students',
-    date: 'September 10, 2024',
-    time: '09:00 AM – 12:00 PM',
-    venue: 'Auditorium',
-    category: 'Academic',
-    summary: 'An orientation session welcoming newly admitted first-year students to the college.',
-    description:
-      'Principal and department heads welcomed the new intake of BS and Intermediate students, introducing college policies, academic curricula, library usage, and campus facilities.',
-    image: orientation,
   },
   {
     id: 'ramzan-seminar',
@@ -133,15 +133,5 @@ export const events: EventItem[] = [
     description:
       'Campus-wide sanitization, mask distribution, and social distancing guidelines observed to protect students during the public health drive.',
     image: covidDrive,
-  },
-  {
-    id: 'ptm',
-    title: 'Parent Teacher Meeting (PTM)',
-    date: 'December 18, 2024',
-    category: 'Academic',
-    summary: 'A Parent Teacher Meeting organized by the college, notified via HED Punjab-format notices.',
-    description:
-      'Parents interacted with faculty members to review academic progress, attendance records, and term examination results.',
-    image: ptmNotice,
   },
 ]

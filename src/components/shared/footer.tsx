@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
-import { Mail, MapPin, Phone, ArrowRight } from 'lucide-react'
-import { IconBrandFacebook, IconBrandInstagram } from '@tabler/icons-react'
+import { Mail, MapPin, Phone, ArrowRight, Hash } from 'lucide-react'
+import { IconBrandFacebook, IconBrandInstagram, IconBrandWhatsapp } from '@tabler/icons-react'
 
 import { LogoMark } from '@/components/shared/logo-mark'
 import { site } from '@/data/site'
@@ -10,6 +10,8 @@ const quickLinks = [
   { to: '/admissions', label: 'Admissions' },
   { to: '/academics', label: 'Academic Programs' },
   { to: '/faculty', label: 'Faculty' },
+  { to: '/fyp', label: 'Final Year Projects' },
+  { to: '/alumni', label: 'Alumni' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/news', label: 'Events' },
 ]
@@ -44,10 +46,17 @@ export function Footer() {
           <p className="text-primary-foreground/80 text-xs font-semibold leading-relaxed">{site.name}</p>
           <p className="text-primary-foreground/70 text-xs italic mb-1">{site.tagline}</p>
 
-          <div className="flex flex-col gap-2 text-xs pt-1 border-t border-primary-foreground/20">
+          <div className="flex flex-col gap-2.5 text-xs pt-1 border-t border-primary-foreground/20">
             <span className="text-primary-foreground/85 flex items-start gap-2">
-              <MapPin className="mt-0.5 size-3.5 shrink-0" />
-              <span>{site.address.line1}, {site.address.line2}</span>
+              <MapPin className="mt-0.5 size-3.5 shrink-0 text-accent" />
+              <span>
+                {site.address.line1}, {site.address.line2}
+              </span>
+            </span>
+
+            <span className="text-primary-foreground/85 flex items-center gap-2">
+              <Hash className="size-3.5 shrink-0" />
+              <span>CMIS Code: {site.cimsCode}</span>
             </span>
             <span className="text-primary-foreground/85 flex items-start gap-2">
               <Phone className="mt-0.5 size-3.5 shrink-0" />
@@ -86,6 +95,15 @@ export function Footer() {
               className="hover:text-accent bg-primary-foreground/10 p-2 rounded-full transition-colors"
             >
               <IconBrandInstagram className="size-4" />
+            </a>
+            <a
+              href={site.social.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="WhatsApp Community"
+              className="hover:text-accent bg-primary-foreground/10 p-2 rounded-full transition-colors"
+            >
+              <IconBrandWhatsapp className="size-4" />
             </a>
           </div>
         </div>
