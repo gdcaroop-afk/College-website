@@ -57,7 +57,7 @@ export function Footer() {
 
             <span className="text-primary-foreground/85 flex items-center gap-2">
               <Hash className="size-3.5 shrink-0" />
-              <span>CMIS Code: {site.cimsCode}</span>
+              <span>CMIS Code: <span className="font-bold">{site.cimsCode}</span></span>
             </span>
             <span className="text-primary-foreground/85 flex items-start gap-2">
               <Phone className="mt-0.5 size-3.5 shrink-0" />
