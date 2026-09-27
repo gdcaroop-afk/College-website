@@ -16,6 +16,7 @@ const mainNavItems = [
   { to: '/faculty', label: 'Faculty & Staff' },
   { to: '/fyp', label: 'FYP' },
   { to: '/alumni', label: 'Alumni' },
+  { to: '/success-stories', label: 'Success Stories' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/news', label: 'News & Events' },
   { to: '/contact', label: 'Contact' },

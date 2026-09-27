@@ -83,12 +83,21 @@ function ProjectDetailModal({
           )}
 
           {/* Team Members */}
-          <div className="mt-2.5 flex items-center gap-2">
-            <Users className="size-3.5 text-muted-foreground shrink-0" />
-            <span className="text-xs font-semibold text-foreground">Team Members:</span>
-            <span className="bg-background border border-border/80 rounded-full px-2.5 py-0.5 text-xs font-bold text-foreground">
-              {project.members.length}
-            </span>
+          <div className="mt-2.5">
+            <div className="flex items-center gap-2 mb-1.5">
+              <Users className="size-3.5 text-muted-foreground shrink-0" />
+              <span className="text-xs font-semibold text-foreground">Team Members</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {project.members.map((m) => (
+                <span
+                  key={m.name}
+                  className="bg-background border border-border/80 rounded-full px-2.5 py-0.5 text-xs font-bold text-foreground"
+                >
+                  {m.name}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -295,14 +304,21 @@ function FYPCard({
       </div>
 
       {/* Members (Compact) */}
-      <div className="px-3.5 pt-2.5 pb-1 flex items-center justify-between">
-        <div className="flex items-center gap-1.5">
+      <div className="px-3.5 pt-2.5 pb-1">
+        <div className="flex items-center gap-1.5 mb-1">
           <Users className="size-3 text-muted-foreground shrink-0" />
           <span className="text-[11px] font-semibold text-foreground">Team Members</span>
         </div>
-        <span className="bg-secondary border border-border/60 rounded-full px-2.5 py-0.5 text-[11px] font-extrabold text-foreground">
-          {project.members.length}
-        </span>
+        <div className="flex flex-wrap gap-1">
+          {project.members.map((m) => (
+            <span
+              key={m.name}
+              className="bg-secondary border border-border/60 rounded-full px-2 py-0.5 text-[10px] font-semibold text-foreground"
+            >
+              {m.name}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Tech Stack (Compact) */}

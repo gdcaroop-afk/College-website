@@ -4,6 +4,10 @@ import puLogoImg from '@/assets/pu.png'
 import qauLogoImg from '@/assets/qua.jpg'
 import vuLogoImg from '@/assets/vu.jpg'
 import uogLogoImg from '@/assets/uog-logo.png'
+import exciseLogoImg from '@/assets/excise department.jpg'
+import policeLogoImg from '@/assets/punjabpolice.png'
+import pillarLogoImg from '@/assets/logo of app pilar software house.jpg'
+import nineTLogoImg from '@/assets/9t solution logo.png'
 
 interface InstitutionLogoProps {
   code: string
@@ -28,6 +32,10 @@ export function InstitutionLogo({
     if (c === 'QAU' || c === 'QUA') return qauLogoImg
     if (c === 'VU') return vuLogoImg
     if (c === 'UOG') return uogLogoImg
+    if (c === 'EXCISE') return exciseLogoImg
+    if (c === 'POLICE') return policeLogoImg
+    if (c === 'PILLAR' || c === 'APP PILLAR') return pillarLogoImg
+    if (c === '9T' || c === '9T SOLUTIONS') return nineTLogoImg
     return pieasLogoImg
   }
 

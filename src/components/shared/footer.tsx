@@ -12,6 +12,7 @@ const quickLinks = [
   { to: '/faculty', label: 'Faculty' },
   { to: '/fyp', label: 'Final Year Projects' },
   { to: '/alumni', label: 'Alumni' },
+  { to: '/success-stories', label: 'Success Stories' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/news', label: 'Events' },
 ]
