@@ -15,6 +15,8 @@ export type SuccessStory = {
   secondaryOrganization?: { code: string; fullName: string }
   bio: string
   highlights: string[]
+  founder?: string
+  contact?: { phone: string; email: string; website: string }
 }
 
 export const successStories: SuccessStory[] = [
@@ -92,12 +94,18 @@ export const successStories: SuccessStory[] = [
       code: '9T',
       fullName: '9T Solutions Software Agency',
     },
-    bio: '9T Solutions is a software agency established by nine members of the 2022–2026 batch, providing professional software services across the local Pakistani market. The agency builds Point of Sale (POS) systems for restaurants, coffee shops, and fast food outlets, and delivers ERP systems for factories that unify production, accounts, sales, and purchasing into a single system. Alongside this, the team also builds custom websites and business automation solutions for local clients.',
+    bio: '9T Solutions is a software agency established by nine members of the 2022–2026 batch, providing professional software services across the local Pakistani market. Founded by Muhammad Azhar Zia, the agency builds Point of Sale (POS) systems for restaurants, coffee shops, and fast food outlets, and delivers ERP systems for factories that unify production, accounts, sales, and purchasing into a single system. Alongside this, the team also builds custom websites and business automation solutions for local clients.',
     highlights: [
       'Point of Sale (POS) systems for restaurants, coffee shops & fast food outlets',
       'ERP systems for factories — production, accounts, sales & purchasing in one system',
       'Custom website development',
       'Business process automation solutions',
     ],
+    founder: 'Muhammad Azhar Zia',
+    contact: {
+      phone: '+92 344 6831140',
+      email: 'contact@9tsolutions.com',
+      website: 'www.9tsolutions.com',
+    },
   },
 ]

@@ -8,6 +8,9 @@ import {
   X,
   Sparkles,
   GraduationCap,
+  Phone,
+  Mail,
+  Globe,
 } from 'lucide-react'
 
 import { successStories, type SuccessStory } from '@/data/success-stories'
@@ -59,7 +62,7 @@ function StoryModal({ story, onClose }: { story: SuccessStory; onClose: () => vo
                 alt={story.name}
                 loading="lazy"
                 decoding="async"
-                className="size-full object-cover object-center"
+                className="size-full object-cover object-top"
               />
             </div>
             <div className="space-y-1.5">
@@ -109,6 +112,40 @@ function StoryModal({ story, onClose }: { story: SuccessStory; onClose: () => vo
               ))}
             </div>
           </div>
+
+          {story.contact && (
+            <div>
+              <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground mb-2.5">
+                <Phone className="size-5 text-primary" />
+                Contact {story.name}
+              </h3>
+              <div className="grid gap-2 sm:grid-cols-3">
+                <a
+                  href={`tel:${story.contact.phone.replace(/\s+/g, '')}`}
+                  className="flex items-center gap-2 rounded-lg bg-card border border-border/80 px-3 py-2 text-xs font-semibold text-foreground shadow-2xs hover:border-primary/40"
+                >
+                  <Phone className="size-3.5 shrink-0 text-primary" />
+                  <span>{story.contact.phone}</span>
+                </a>
+                <a
+                  href={`mailto:${story.contact.email}`}
+                  className="flex items-center gap-2 rounded-lg bg-card border border-border/80 px-3 py-2 text-xs font-semibold text-foreground shadow-2xs hover:border-primary/40"
+                >
+                  <Mail className="size-3.5 shrink-0 text-primary" />
+                  <span>{story.contact.email}</span>
+                </a>
+                <a
+                  href={`https://${story.contact.website}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 rounded-lg bg-card border border-border/80 px-3 py-2 text-xs font-semibold text-foreground shadow-2xs hover:border-primary/40"
+                >
+                  <Globe className="size-3.5 shrink-0 text-primary" />
+                  <span>{story.contact.website}</span>
+                </a>
+              </div>
+            </div>
+          )}
 
           <div>
             <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground mb-2.5">
@@ -166,9 +203,7 @@ function StoryCard({ story, onReadMore }: { story: SuccessStory; onReadMore: () 
             alt={story.name}
             loading="lazy"
             decoding="async"
-            className={`size-full transition-transform duration-500 group-hover:scale-103 ${
-              story.type === 'company' ? 'object-cover object-top' : 'object-cover object-center'
-            }`}
+            className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
           />
           <span className="bg-card/90 backdrop-blur-xs text-primary absolute top-2 left-2 flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold shadow-2xs">
             <GraduationCap className="size-3" />
