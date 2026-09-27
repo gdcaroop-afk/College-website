@@ -74,6 +74,9 @@ function StoryModal({ story, onClose }: { story: SuccessStory; onClose: () => vo
               <p className="font-sans text-sm font-semibold text-primary">{story.headline}</p>
               <div className="flex flex-wrap items-center justify-center gap-2 pt-1 sm:justify-start">
                 <InstitutionLogo code={story.organization.code} />
+                {story.secondaryOrganization && (
+                  <InstitutionLogo code={story.secondaryOrganization.code} />
+                )}
               </div>
             </div>
           </div>
@@ -124,6 +127,19 @@ function StoryModal({ story, onClose }: { story: SuccessStory; onClose: () => vo
               </div>
               <InstitutionLogo code={story.organization.code} showLabel={true} />
             </div>
+
+            {story.secondaryOrganization && (
+              <div className="mt-2.5 flex items-center justify-between rounded-xl bg-muted/40 border border-border/60 p-3 text-xs">
+                <div className="flex items-center gap-3">
+                  <InstitutionLogo code={story.secondaryOrganization.code} showLabel={false} size="lg" />
+                  <div>
+                    <p className="font-bold text-foreground text-xs sm:text-sm">{story.secondaryOrganization.fullName}</p>
+                    <p className="text-[11px] text-muted-foreground font-medium">Also Founder Of</p>
+                  </div>
+                </div>
+                <InstitutionLogo code={story.secondaryOrganization.code} showLabel={true} />
+              </div>
+            )}
           </div>
 
           <div className="pt-2 flex justify-end">
@@ -173,6 +189,9 @@ function StoryCard({ story, onReadMore }: { story: SuccessStory; onReadMore: () 
 
           <div className="flex flex-wrap items-center justify-center gap-1.5 pt-2">
             <InstitutionLogo code={story.organization.code} />
+            {story.secondaryOrganization && (
+              <InstitutionLogo code={story.secondaryOrganization.code} />
+            )}
           </div>
         </div>
       </div>

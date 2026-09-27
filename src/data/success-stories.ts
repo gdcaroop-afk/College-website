@@ -12,6 +12,7 @@ export type SuccessStory = {
   batch: string
   headline: string
   organization: { code: string; fullName: string }
+  secondaryOrganization?: { code: string; fullName: string }
   bio: string
   highlights: string[]
 }
@@ -67,6 +68,10 @@ export const successStories: SuccessStory[] = [
     organization: {
       code: 'PILLAR',
       fullName: 'App Pillars (Remote)',
+    },
+    secondaryOrganization: {
+      code: '9T',
+      fullName: '9T Solutions Software Agency',
     },
     bio: 'Nafeel Aqqib is a graduate of the 2022–2026 batch and a brilliant name in the Computer Science field. Far more than just a developer, he is a technically gifted, God-given problem solver who applies his skills across every layer of the products he builds. He currently works as a Full Stack Developer at App Pillars, a remote software house, while also running his own software agency, giving him hands-on experience in both employed and entrepreneurial software development.',
     highlights: [
