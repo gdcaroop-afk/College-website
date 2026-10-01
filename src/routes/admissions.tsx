@@ -5,6 +5,7 @@ import { CheckCircle2, Mail, MapPin, Phone } from 'lucide-react'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { Button } from '@/components/ui/button'
 import { site } from '@/data/site'
+import { openGmailCompose, validateInquiry } from '@/lib/inquiry'
 import { programs } from '@/data/programs'
 import { applicationSteps, bachelorRequirements, intermediateRequirements } from '@/data/admissions'
 import campusPhoto from '@/assets/2.jpg'
@@ -17,10 +18,23 @@ export const Route = createFileRoute('/admissions')({
 })
 
 function InquiryForm() {
-  const [values, setValues] = useState({ name: '', email: '', phone: '', program: '', message: '' })
+  const [values, setValues] = useState({ name: '', email: '', phone: '', program: '', message: '', website: '' })
+  const [error, setError] = useState('')
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    const result = validateInquiry({
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      message: values.message,
+      honeypot: values.website,
+    })
+    if (!result.ok) {
+      setError(result.error)
+      return
+    }
+    setError('')
     const subject = `Admission Inquiry from ${values.name || 'Website Visitor'}`
     const body = [
       `Name: ${values.name}`,
@@ -30,7 +44,7 @@ function InquiryForm() {
       '',
       values.message,
     ].join('\n')
-    window.location.href = `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    openGmailCompose(site.contact.email, subject, body)
   }
 
   const inputClass =
@@ -75,6 +89,14 @@ function InquiryForm() {
           ))}
         </select>
       </div>
+      <input
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        value={values.website}
+        onChange={(e) => setValues((v) => ({ ...v, website: e.target.value }))}
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
       <textarea
         placeholder="Tell us about your interests and goals..."
         rows={4}
@@ -82,11 +104,16 @@ function InquiryForm() {
         onChange={(e) => setValues((v) => ({ ...v, message: e.target.value }))}
         className="border-input bg-background focus-visible:border-ring focus-visible:ring-ring/50 w-full resize-none rounded-md border px-3 py-2 text-sm outline-none focus-visible:ring-1"
       />
+      {error && (
+        <p role="alert" className="text-destructive text-sm font-medium">
+          {error}
+        </p>
+      )}
       <Button type="submit" className="w-fit">
         Send Inquiry
       </Button>
       <p className="text-muted-foreground text-xs">
-        This opens your email app with the message addressed to the college — the
+        Your message is checked first, then Gmail opens with it addressed to the college — the
         site itself doesn't store or send anything.
       </p>
     </form>

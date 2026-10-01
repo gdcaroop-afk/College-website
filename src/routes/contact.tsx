@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { openGmailCompose, validateInquiry } from '@/lib/inquiry'
 import { createFileRoute } from '@tanstack/react-router'
 import {
   MapPin,
@@ -35,13 +36,37 @@ function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     contactInfo: '',
-    program: 'General Inquiry',
+    queryType: '',
     message: '',
+    website: '',
   })
+  const [error, setError] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.name || !formData.message) return
+    const result = validateInquiry({
+      name: formData.name,
+      contactInfo: formData.contactInfo,
+      queryType: formData.queryType,
+      message: formData.message,
+      honeypot: formData.website,
+    })
+    if (!result.ok) {
+      setError(result.error)
+      return
+    }
+    setError('')
+    openGmailCompose(
+      site.contact.email,
+      `Website Inquiry (${formData.queryType}) from ${formData.name}`,
+      [
+        `Name: ${formData.name}`,
+        `Contact: ${formData.contactInfo}`,
+        `Topic: ${formData.queryType}`,
+        '',
+        formData.message,
+      ].join('\n'),
+    )
     setFormSubmitted(true)
   }
 
@@ -199,7 +224,7 @@ function ContactPage() {
                     className="mt-1 text-xs h-8"
                     onClick={() => {
                       setFormSubmitted(false)
-                      setFormData({ name: '', contactInfo: '', program: 'General Inquiry', message: '' })
+                      setFormData({ name: '', contactInfo: '', queryType: '', message: '', website: '' })
                     }}
                   >
                     Send Another Message
@@ -233,19 +258,16 @@ function ContactPage() {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-[11px] font-bold text-foreground">Program of Interest</label>
-                    <select
-                      value={formData.program}
-                      onChange={(e) => setFormData({ ...formData, program: e.target.value })}
+                    <label className="text-[11px] font-bold text-foreground">Type of Query *</label>
+                    <input
+                      type="text"
+                      required
+                      maxLength={80}
+                      placeholder="e.g. Admission in BS Computer Science, Fee structure, Result"
+                      value={formData.queryType}
+                      onChange={(e) => setFormData({ ...formData, queryType: e.target.value })}
                       className="bg-background border-border text-foreground focus:border-primary focus:ring-primary/20 w-full rounded-md border px-3 py-1.5 text-xs font-medium outline-hidden transition-all"
-                    >
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Intermediate Programs (F.A / F.Sc / ICS)">Intermediate Programs (F.A / F.Sc / ICS)</option>
-                      <option value="BS Computer Science">BS Computer Science</option>
-                      <option value="BS Chemistry">BS Chemistry</option>
-                      <option value="BS English">BS English</option>
-                      <option value="2-Year Associate Diplomas">2-Year Associate Diplomas</option>
-                    </select>
+                    />
                   </div>
 
                   <div className="space-y-1">
@@ -260,6 +282,19 @@ function ContactPage() {
                     />
                   </div>
 
+                  <input
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    value={formData.website}
+                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                    className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                  />
+                  {error && (
+                    <p role="alert" className="text-destructive text-xs font-medium">
+                      {error}
+                    </p>
+                  )}
                   <button
                     type="submit"
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-xs py-2 px-4 rounded-md flex items-center justify-center gap-1.5 transition-all shadow-xs"
