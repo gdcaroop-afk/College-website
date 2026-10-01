@@ -1,6 +1,6 @@
 import shanzaPhoto from '@/assets/ShanzaSaif-placeholder.png'
-import ahmadPhoto from '@/assets/Muhammad_Ahmad_police.png'
-import nafeelPhoto from '@/assets/NafeelAqqib.png'
+import ahmadPhoto from '@/assets/Muhammad_Ahmad_police.jpg'
+import nafeelPhoto from '@/assets/NafeelAqqib.jpg'
 import nineTTeamPhoto from '@/assets/9t-solution-team.jpg'
 
 export type SuccessStory = {
