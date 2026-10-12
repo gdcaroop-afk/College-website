@@ -28,7 +28,7 @@ export type FacultyMember = {
   department: string
   qualification: string
   experience: string
-  email?: string
+  email?: string | string[]
   bps?: string
   employmentType?: 'Regular' | 'Contractee'
   tier: 'principal' | 'senior' | 'faculty' | 'support'
@@ -48,7 +48,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Physics',
     qualification: 'Ph.D. Physics (PIEAS) | M.Phil Physics (QAU)',
     experience: '12 Years',
-    email: 'shahzad.khurram2010@gmail.com',
+    email: 'khurram-shahzad@ggca-grw.edu.pk',
     bps: 'BPS-18',
     employmentType: 'Regular',
     tier: 'principal',
@@ -74,7 +74,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'English',
     qualification: 'MS/M.Phil English',
     experience: '30 Years',
-    email: 'intzareltl@gmail.com',
+    email: 'intzar.ahmad@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'senior',
@@ -99,7 +99,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'English',
     qualification: 'M.A. English',
     experience: '30 Years',
-    email: 'shabbir2108@gmail.com',
+    email: 'shabbir.hussain@ggca-grw.edu.pk',
     bps: 'BPS-19',
     employmentType: 'Regular',
     tier: 'senior',
@@ -124,7 +124,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Education',
     qualification: 'MS/M.Phil Education',
     experience: '13 Years',
-    email: 'anwaar.ahmad4@gmail.com',
+    email: 'anwaar.ahmad@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'senior',
@@ -149,7 +149,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Biology',
     qualification: 'MS/M.Phil Zoology (VU)',
     experience: '10 Years',
-    email: 'naveedghafarr@gmail.com',
+    email: ['naveed.ahmad@ggca-grw.edu.pk', 'coordinater.ssio@ggca-grw.edu.pk'],
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'faculty',
@@ -174,7 +174,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Commerce',
     qualification: 'Ph.D. Scholar (PU) | M.Phil Finance (PU)',
     experience: '10 Years',
-    email: 'usman90.fbr@gmail.com',
+    email: 'm.usman@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'faculty',
@@ -224,7 +224,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Political Science',
     qualification: 'Masters - Political Science (QAU)',
     experience: '8 Years',
-    email: 'immransaeed@gmail.com',
+    email: 'imran.saeed@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'faculty',
@@ -249,7 +249,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Physical Education',
     qualification: 'Masters - Physical Education (PU)',
     experience: '7 Years',
-    email: 'shahidnaveednawaz@gmail.com',
+    email: 'shahid.nawaz@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'faculty',
@@ -274,7 +274,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Punjabi',
     qualification: 'BS (Hons) - Punjabi (PU)',
     experience: '5 Years',
-    email: 'fakhra.zaib20@gmail.com',
+    email: 'fakhra.zaib@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'faculty',
@@ -299,7 +299,7 @@ export const facultyMembers: FacultyMember[] = [
     department: 'Information Management',
     qualification: 'MA Information Management (PU)',
     experience: '8 Years',
-    email: 'amirkhalil851@gmail.com',
+    email: 'amir.khalil@ggca-grw.edu.pk',
     bps: 'BPS-17',
     employmentType: 'Regular',
     tier: 'support',

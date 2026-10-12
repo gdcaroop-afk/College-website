@@ -45,7 +45,7 @@ export function ProgramCard({ program, dashed = false }: { program: Program; das
       <div className="p-4 pt-0 mt-2">
         <Link
           to="/academics/$slug"
-          params={{ slug: program.slug }}
+          params={{ slug: program.slug } as any}
           className="bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground font-semibold text-xs py-2 px-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200"
         >
           <span>Read About Course</span>

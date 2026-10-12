@@ -23,12 +23,13 @@ const mainNavItems = [
 ] as const
 
 const tickerAnnouncements = [
+  '📜 The final transcripts for BS Computer Science and BS English (Session 2022–2026) have arrived. Please collect your transcript after paying any pending college dues, as instructed by the Coordinator’s Office.',
   '📢 Admissions Open for BS CS, BS English, BS Chemistry, BS Commerce & Intermediate (F.Sc, ICS, F.A, I.Com, DIT)',
   '⏰ Intermediate Shift Timings (Part 1 & 2): 08:30 AM - 01:45 PM | Friday: 08:30 AM - 12:00 PM',
   '⏰ BS Programs Timetable: 08:30 AM - 12:15 PM | Friday: 08:30 AM - 11:00 AM',
   '🎓 Farewell Party for Graduating Batch 2022-2026 to be Announced Soon',
   '🎉 Welcome Party for New Incoming Batch to be Announced Soon',
-  '📞 Principal Office: 05534940001 | Admission Office: 055-34940002 | Email: gdc.aroop@gmail.com',
+  '📞 Principal Office: 05534940001 | Admission Office: 055-34940002 | Email: contact@ggca-grw.edu.pk',
 ]
 
 export function Header() {

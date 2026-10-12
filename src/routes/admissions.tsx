@@ -31,7 +31,7 @@ function InquiryForm() {
       honeypot: values.website,
     })
     if (!result.ok) {
-      setError(result.error)
+      setError('error' in result ? result.error : '')
       return
     }
     setError('')

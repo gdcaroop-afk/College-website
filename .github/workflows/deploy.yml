@@ -23,7 +23,7 @@ jobs:
         run: bun install
 
       - name: Verify TypeScript Types
-        run: bun run tsc --noEmit
+        run: bun run tsc -b
 
       - name: Build Web Application Bundle
         run: bun run build
@@ -35,10 +35,6 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment:
       name: production
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -51,4 +47,3 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
-          scope: ${{ secrets.VERCEL_ORG_ID }}

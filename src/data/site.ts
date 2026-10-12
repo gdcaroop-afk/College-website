@@ -29,7 +29,7 @@ export const site = {
       { number: '05534940001', source: 'Principal Office' },
       { number: '055-34940002', source: 'Admission Office' },
     ],
-    email: 'gdc.aroop@gmail.com',
+    email: 'contact@ggca-grw.edu.pk',
   },
   social: {
     facebook: 'https://www.facebook.com/ggc.aroop',

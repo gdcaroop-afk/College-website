@@ -32,12 +32,12 @@ export type InquiryInput = {
   honeypot?: string
 }
 
-export type InquiryResult = { ok: true } | { ok: false; error: string }
+export type InquiryResult = { ok: true; error?: undefined } | { ok: false; error: string }
 
 const COOLDOWN_MS = 60_000
 const STORAGE_KEY = 'inquiry:last-sent'
 
-function words(text: string) {
+function words(text: string): string[] {
   return text.toLowerCase().match(/[a-z؀-ۿ.']+/g) ?? []
 }
 
@@ -115,7 +115,9 @@ export function validateInquiry(input: InquiryInput): InquiryResult {
     return { ok: false, error: 'Please keep your message respectful and serious.' }
   }
 
-  const relevant = list.some((w) => COLLEGE_KEYWORDS.some((k) => w === k || (k.length >= 4 && w.startsWith(k))))
+  const relevant = list.some((w: string) =>
+    COLLEGE_KEYWORDS.some((k: string) => (k.length >= 4 ? w.startsWith(k) : w === k))
+  )
   if (!relevant) {
     return {
       ok: false,

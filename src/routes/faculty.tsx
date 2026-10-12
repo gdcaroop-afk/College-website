@@ -116,14 +116,29 @@ function ProfileModal({
               <Mail className="size-5 text-primary" />
               Contact Information
             </h3>
-            <p className="mt-1.5 flex items-center gap-2 text-sm text-muted-foreground font-medium rounded-lg bg-muted/40 border border-border/60 p-3">
+            <div className="mt-1.5 flex flex-wrap items-center gap-2 text-sm text-muted-foreground font-medium rounded-lg bg-muted/40 border border-border/60 p-3">
               <span className="font-bold text-foreground">Email:</span>
               {member.email ? (
-                <a href={`mailto:${member.email}`} className="italic text-primary hover:underline">{member.email}</a>
+                Array.isArray(member.email) ? (
+                  <div className="inline-flex flex-wrap items-center gap-2">
+                    {member.email.map((emailAddress, idx) => (
+                      <span key={emailAddress} className="inline-flex items-center gap-2">
+                        {idx > 0 && <span className="text-muted-foreground/60">|</span>}
+                        <a href={`mailto:${emailAddress}`} className="italic text-primary hover:underline">
+                          {emailAddress}
+                        </a>
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <a href={`mailto:${member.email}`} className="italic text-primary hover:underline">
+                    {member.email}
+                  </a>
+                )
               ) : (
                 <span className="italic">Not provided yet</span>
               )}
-            </p>
+            </div>
           </div>
 
           {/* Biography */}
