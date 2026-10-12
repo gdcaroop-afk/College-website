@@ -21,6 +21,7 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as AcademicsSlugRouteImport } from './routes/academics_.$slug'
+import { Route as FacultySlugRouteImport } from './routes/faculty_.$slug'
 import { Route as HighlightsSlugRouteImport } from './routes/highlights.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -83,6 +84,11 @@ const AcademicsSlugRoute = AcademicsSlugRouteImport.update({
   path: '/academics/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FacultySlugRoute = FacultySlugRouteImport.update({
+  id: '/faculty_/$slug',
+  path: '/faculty/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HighlightsSlugRoute = HighlightsSlugRouteImport.update({
   id: '/highlights/$slug',
   path: '/highlights/$slug',
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/news': typeof NewsRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/academics/$slug': typeof AcademicsSlugRoute
+  '/faculty/$slug': typeof FacultySlugRoute
   '/highlights/$slug': typeof HighlightsSlugRoute
 }
 export interface FileRoutesByTo {
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/news': typeof NewsRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/academics/$slug': typeof AcademicsSlugRoute
+  '/faculty/$slug': typeof FacultySlugRoute
   '/highlights/$slug': typeof HighlightsSlugRoute
 }
 export interface FileRoutesById {
@@ -133,6 +141,7 @@ export interface FileRoutesById {
   '/news': typeof NewsRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/academics_/$slug': typeof AcademicsSlugRoute
+  '/faculty_/$slug': typeof FacultySlugRoute
   '/highlights/$slug': typeof HighlightsSlugRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +159,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/success-stories'
     | '/academics/$slug'
+    | '/faculty/$slug'
     | '/highlights/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/success-stories'
     | '/academics/$slug'
+    | '/faculty/$slug'
     | '/highlights/$slug'
   id:
     | '__root__'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/success-stories'
     | '/academics_/$slug'
+    | '/faculty_/$slug'
     | '/highlights/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -196,6 +208,7 @@ export interface RootRouteChildren {
   NewsRoute: typeof NewsRoute
   SuccessStoriesRoute: typeof SuccessStoriesRoute
   AcademicsSlugRoute: typeof AcademicsSlugRoute
+  FacultySlugRoute: typeof FacultySlugRoute
   HighlightsSlugRoute: typeof HighlightsSlugRoute
 }
 
@@ -285,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AcademicsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faculty_/$slug': {
+      id: '/faculty_/$slug'
+      path: '/faculty/$slug'
+      fullPath: '/faculty/$slug'
+      preLoaderRoute: typeof FacultySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/highlights/$slug': {
       id: '/highlights/$slug'
       path: '/highlights/$slug'
@@ -308,6 +328,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsRoute: NewsRoute,
   SuccessStoriesRoute: SuccessStoriesRoute,
   AcademicsSlugRoute: AcademicsSlugRoute,
+  FacultySlugRoute: FacultySlugRoute,
   HighlightsSlugRoute: HighlightsSlugRoute,
 }
 export const routeTree = rootRouteImport

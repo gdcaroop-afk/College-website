@@ -4,12 +4,7 @@ import {
   Search,
   Award,
   GraduationCap,
-  BookOpen,
-  CheckCircle2,
-  Mail,
-  X,
   ArrowRight,
-  Sparkles,
   Building2,
   Clock,
   ShieldCheck,
@@ -34,193 +29,9 @@ export const Route = createFileRoute('/faculty')({
   }),
 })
 
-function ProfileModal({
-  member,
-  onClose,
-}: {
-  member: FacultyMember
-  onClose: () => void
-}) {
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs transition-opacity duration-200"
-      onClick={onClose}
-    >
-      <div
-        className="bg-card text-card-foreground border-border relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border shadow-2xl transition-all duration-200 animate-in fade-in zoom-in-95"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="bg-background/80 hover:bg-muted text-foreground absolute top-4 right-4 z-10 flex size-9 items-center justify-center rounded-full border border-border shadow-xs transition-colors"
-          aria-label="Close dialog"
-        >
-          <X className="size-5" />
-        </button>
-
-        {/* Modal Header / Banner */}
-        <div className="bg-linear-to-r from-primary/15 via-secondary to-accent/15 border-b border-border/60 p-6 sm:p-8">
-          <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
-            <div className="relative size-28 shrink-0 overflow-hidden rounded-2xl border-2 border-primary/30 shadow-md sm:size-32 bg-muted/20">
-              <img
-                src={member.photo}
-                alt={member.name}
-                loading="lazy"
-                decoding="async"
-                className="size-full object-cover object-center"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
-                <span className="bg-primary text-primary-foreground rounded-md px-2.5 py-0.5 text-[11px] font-bold tracking-wide uppercase">
-                  {member.department}
-                </span>
-                <span className="bg-muted text-muted-foreground border-border/60 rounded-md border px-2.5 py-0.5 text-[11px] font-semibold">
-                  {member.experience} Teaching Exp.
-                </span>
-              </div>
-              <h2 className="font-heading text-2xl font-extrabold text-foreground sm:text-3xl">
-                {member.name}
-              </h2>
-              <p className="font-sans text-sm font-semibold text-primary">
-                {member.designation}
-              </p>
-              {member.institutions && member.institutions.length > 0 && (
-                <div className="flex flex-wrap items-center justify-center gap-2 pt-1 sm:justify-start">
-                  {member.institutions.map((inst) => (
-                    <InstitutionLogo key={inst.shortName} code={inst.shortName} />
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Modal Content Details */}
-        <div className="space-y-6 p-6 sm:p-8">
-          {/* Academic Qualifications */}
-          <div>
-            <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground">
-              <GraduationCap className="size-5 text-primary" />
-              Academic Qualification & Background
-            </h3>
-            <p className="mt-1.5 rounded-lg bg-secondary/70 border border-border/60 p-3 text-sm font-semibold text-foreground">
-              {member.qualification}
-            </p>
-          </div>
-
-          {/* Contact Information */}
-          <div>
-            <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground">
-              <Mail className="size-5 text-primary" />
-              Contact Information
-            </h3>
-            <div className="mt-1.5 flex flex-wrap items-center gap-2 text-sm text-muted-foreground font-medium rounded-lg bg-muted/40 border border-border/60 p-3">
-              <span className="font-bold text-foreground">Email:</span>
-              {member.email ? (
-                Array.isArray(member.email) ? (
-                  <div className="inline-flex flex-wrap items-center gap-2">
-                    {member.email.map((emailAddress, idx) => (
-                      <span key={emailAddress} className="inline-flex items-center gap-2">
-                        {idx > 0 && <span className="text-muted-foreground/60">|</span>}
-                        <a href={`mailto:${emailAddress}`} className="italic text-primary hover:underline">
-                          {emailAddress}
-                        </a>
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <a href={`mailto:${member.email}`} className="italic text-primary hover:underline">
-                    {member.email}
-                  </a>
-                )
-              ) : (
-                <span className="italic">Not provided yet</span>
-              )}
-            </div>
-          </div>
-
-          {/* Biography */}
-          <div>
-            <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground">
-              <BookOpen className="size-5 text-primary" />
-              Professional Profile & Experience
-            </h3>
-            <p className="mt-2 text-sm text-foreground/80 leading-relaxed text-justify">
-              {member.bio}
-            </p>
-          </div>
-
-          {/* Key Areas of Strength */}
-          {member.areasOfStrength.length > 0 && (
-            <div>
-              <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground mb-3">
-                <Sparkles className="size-5 text-primary" />
-                Key Areas of Strength & Expertise
-              </h3>
-              <div className="grid gap-2.5 sm:grid-cols-2">
-                {member.areasOfStrength.map((strength) => (
-                  <div
-                    key={strength}
-                    className="flex items-center gap-2.5 rounded-lg bg-card border border-border/80 px-3.5 py-2 text-xs font-semibold text-foreground shadow-2xs"
-                  >
-                    <CheckCircle2 className="size-4 shrink-0 text-primary" />
-                    <span>{strength}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-
-
-          {/* University & Alma Mater Qualifications with Official Logos */}
-          {member.institutions && member.institutions.length > 0 && (
-            <div>
-              <h3 className="font-heading flex items-center gap-2 text-base font-bold text-foreground mb-2.5">
-                <Building2 className="size-5 text-primary" />
-                Educational Institutions & Alma Mater
-              </h3>
-              <div className="flex flex-col gap-2.5">
-                {member.institutions.map((inst) => (
-                  <div
-                    key={inst.shortName}
-                    className="flex items-center justify-between rounded-xl bg-muted/40 border border-border/60 p-3 text-xs"
-                  >
-                    <div className="flex items-center gap-3">
-                      <InstitutionLogo code={inst.shortName} showLabel={false} size="lg" />
-                      <div>
-                        <p className="font-bold text-foreground text-xs sm:text-sm">{inst.fullName}</p>
-                        <p className="text-[11px] text-muted-foreground font-medium">Graduated Higher Education Institution & Alma Mater ({inst.shortName})</p>
-                      </div>
-                    </div>
-                    <InstitutionLogo code={inst.shortName} showLabel={true} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Close Modal CTA */}
-          <div className="pt-2 flex justify-end">
-            <button
-              onClick={onClose}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-5 py-2.5 rounded-lg text-sm transition-all duration-200 shadow-sm"
-            >
-              Close Profile
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function FacultyPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedDept, setSelectedDept] = useState('All Departments')
-  const [activeProfile, setActiveProfile] = useState<FacultyMember | null>(null)
 
   const filteredFaculty = useMemo(() => {
     return facultyMembers.filter((m) => {
@@ -366,7 +177,6 @@ function FacultyPage() {
                   <FacultyCard
                     key={member.id}
                     member={member}
-                    onViewProfile={() => setActiveProfile(member)}
                   />
                 ))}
               </div>
@@ -443,14 +253,15 @@ function FacultyPage() {
                           ))}
                         </div>
 
-                        <div className="flex items-center gap-3">
-                          <button
-                            onClick={() => setActiveProfile(principal)}
+                        <div className="flex items-center gap-2">
+                          <Link
+                            to="/faculty/$slug"
+                            params={{ slug: principal.id.replace(/-/g, '_') }}
                             className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-xs px-4 py-2.5 rounded-lg inline-flex items-center gap-2 transition-all shadow-xs"
                           >
                             <span>View Profile</span>
                             <ArrowRight className="size-3.5" />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -476,7 +287,6 @@ function FacultyPage() {
                     <FacultyCard
                       key={member.id}
                       member={member}
-                      onViewProfile={() => setActiveProfile(member)}
                     />
                   ))}
                 </div>
@@ -500,7 +310,6 @@ function FacultyPage() {
                     <FacultyCard
                       key={member.id}
                       member={member}
-                      onViewProfile={() => setActiveProfile(member)}
                     />
                   ))}
                 </div>
@@ -509,32 +318,22 @@ function FacultyPage() {
           </>
         )}
       </div>
-
-
-
-      {/* Modal Profile Dialog */}
-      {activeProfile && (
-        <ProfileModal
-          member={activeProfile}
-          onClose={() => setActiveProfile(null)}
-        />
-      )}
     </div>
   )
 }
 
-function FacultyCard({
-  member,
-  onViewProfile,
-}: {
-  member: FacultyMember
-  onViewProfile: () => void
-}) {
+function FacultyCard({ member }: { member: FacultyMember }) {
+  const canonicalSlug = member.id.replace(/-/g, '_')
+
   return (
     <div className="bg-card group border border-border/80 flex flex-col justify-between overflow-hidden rounded-xl shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
       <div>
-        {/* Photo header: aspect-square ensures complete headshot fits frame without vertical crop */}
-        <div className="relative aspect-square w-full overflow-hidden bg-muted/20">
+        {/* Photo header */}
+        <Link
+          to="/faculty/$slug"
+          params={{ slug: canonicalSlug }}
+          className="relative block aspect-square w-full overflow-hidden bg-muted/20"
+        >
           <img
             src={member.photo}
             alt={member.name}
@@ -554,13 +353,17 @@ function FacultyCard({
               Photo Coming Soon
             </span>
           )}
-        </div>
+        </Link>
 
         {/* Content body */}
         <div className="flex flex-col items-center text-center gap-2 p-5">
-          <h3 className="font-heading text-foreground group-hover:text-primary text-base font-bold transition-colors text-center">
+          <Link
+            to="/faculty/$slug"
+            params={{ slug: canonicalSlug }}
+            className="font-heading text-foreground group-hover:text-primary text-base font-bold transition-colors text-center"
+          >
             {member.name}
-          </h3>
+          </Link>
           <p className="text-primary text-xs font-semibold leading-snug text-center">
             {member.designation}
           </p>
@@ -579,15 +382,16 @@ function FacultyCard({
         </div>
       </div>
 
-      {/* Card footer: View Profile Button */}
+      {/* Card footer */}
       <div className="p-5 pt-0 mt-2">
-        <button
-          onClick={onViewProfile}
-          className="w-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground font-semibold text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200"
+        <Link
+          to="/faculty/$slug"
+          params={{ slug: canonicalSlug }}
+          className="w-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground font-semibold text-xs py-2.5 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-all duration-200"
         >
           <span>View Profile</span>
           <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-        </button>
+        </Link>
       </div>
     </div>
   )
